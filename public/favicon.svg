@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0f0a06"/>
+  <path d="M32 10 L52 32 L32 54 L12 32 Z" fill="none" stroke="#fb923c" stroke-width="3" stroke-linejoin="round"/>
+  <text x="32" y="38" font-family="monospace" font-size="14" font-weight="bold" text-anchor="middle" fill="#fb923c">LFS</text>
+</svg>
