@@ -3,8 +3,13 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
+// Quando publicado no GitHub Pages o site fica em
+// https://wallysondevs.github.io/linux-from-scratch-book/
+// Em dev/local mantemos o base como "/".
+const base = process.env.GITHUB_ACTIONS ? "/linux-from-scratch-book/" : "/";
+
 export default defineConfig({
-  base: "/",
+  base,
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
