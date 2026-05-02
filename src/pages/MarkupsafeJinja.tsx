@@ -13,10 +13,10 @@ export default function MarkupsafeJinja() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf markupsafe-2.1.5.tar.gz && cd markupsafe-2.1.5
+tar -xf markupsafe-3.0.2.tar.gz && cd markupsafe-3.0.2
 pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 pip3 install --no-index --no-user --find-links dist Markupsafe
-cd .. && rm -rf markupsafe-2.1.5`}
+cd .. && rm -rf markupsafe-3.0.2`}
       />
 
       <h2>Jinja2</h2>

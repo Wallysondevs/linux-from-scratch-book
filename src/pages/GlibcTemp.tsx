@@ -21,8 +21,8 @@ export default function GlibcTemp() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf glibc-2.40.tar.xz
-cd glibc-2.40
+tar -xf glibc-2.42.tar.xz
+cd glibc-2.42
 
 # Symlinks para LSB compliance:
 case $(uname -m) in
@@ -33,7 +33,7 @@ case $(uname -m) in
     ;;
 esac
 
-patch -Np1 -i ../glibc-2.40-fhs-1.patch
+patch -Np1 -i ../glibc-2.42-fhs-1.patch
 
 mkdir -v build
 cd build
@@ -100,7 +100,7 @@ rm -v a.out`}
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-rm -rf glibc-2.40`}
+rm -rf glibc-2.42`}
       />
     </PageContainer>
   );

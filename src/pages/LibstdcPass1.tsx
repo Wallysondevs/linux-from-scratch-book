@@ -20,8 +20,8 @@ export default function LibstdcPass1() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf gcc-14.2.0.tar.xz
-cd gcc-14.2.0
+tar -xf gcc-15.2.0.tar.xz
+cd gcc-15.2.0
 
 mkdir -v build
 cd build
@@ -42,7 +42,7 @@ make DESTDIR=$LFS install
 rm -v $LFS/usr/lib/lib{stdc++{,exp,fs},supc++}.la
 
 cd $LFS/sources
-rm -rf gcc-14.2.0`}
+rm -rf gcc-15.2.0`}
       />
     </PageContainer>
   );

@@ -49,13 +49,13 @@ stat -c "%a %n" $LFS/sources
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf bash-5.2.tar.gz
-cd bash-5.2
+tar -xf bash-5.3.tar.gz
+cd bash-5.3
 
 # ... build aqui ...
 
 cd ..
-rm -rf bash-5.2`}
+rm -rf bash-5.3`}
       />
 
       <AlertBox type="info" title="Por que apagar?">

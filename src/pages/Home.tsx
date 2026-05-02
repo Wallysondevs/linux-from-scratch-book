@@ -5,7 +5,6 @@ import {
   Cpu,
   HardDrive,
   Power,
-  Package,
   Sparkles,
   ChevronRight,
   ShieldAlert,
@@ -32,28 +31,28 @@ const sections = [
   {
     icon: Hammer,
     title: "Toolchain Cross-Compilada",
-    desc: "Construa Binutils, GCC e Glibc em duas passes para criar uma toolchain isolada.",
+    desc: "Construa Binutils 2.45, GCC 15.2 e Glibc 2.42 em duas passes para criar uma toolchain isolada.",
     href: "/intro-toolchain",
     color: "bg-cyan-500/10 text-cyan-500",
   },
   {
     icon: Boxes,
     title: "Software do Sistema",
-    desc: "Compile mais de 80 pacotes essenciais dentro do chroot — do Glibc ao Vim.",
+    desc: "Compile 85+ pacotes essenciais dentro do chroot — do Glibc ao Vim.",
     href: "/man-pages",
     color: "bg-yellow-500/10 text-yellow-500",
   },
   {
     icon: Cpu,
     title: "Compile o Kernel",
-    desc: "Configure e compile o kernel Linux 6.x do código-fonte para o seu hardware.",
+    desc: "Configure e compile o kernel Linux 6.16 do código-fonte para o seu hardware.",
     href: "/kernel",
     color: "bg-red-500/10 text-red-500",
   },
   {
     icon: Power,
     title: "Boot com GRUB",
-    desc: "Instale e configure o GRUB 2 para fazer seu LFS dar boot pela primeira vez.",
+    desc: "Instale e configure o GRUB 2.12 para fazer seu LFS dar boot pela primeira vez.",
     href: "/grub",
     color: "bg-orange-500/10 text-orange-500",
   },
@@ -74,16 +73,27 @@ const sections = [
 ];
 
 const stats = [
-  { value: "80+", label: "Pacotes compilados" },
-  { value: "60+", label: "Capítulos guiados" },
+  { value: "85", label: "Capítulos guiados" },
+  { value: "85", label: "Pacotes compilados" },
+  { value: "12.4", label: "Versão do LFS" },
   { value: "PT-BR", label: "100% Português" },
-  { value: "Grátis", label: "Open Knowledge" },
+];
+
+const versions = [
+  { name: "GCC", v: "15.2.0" },
+  { name: "Glibc", v: "2.42" },
+  { name: "Binutils", v: "2.45" },
+  { name: "Linux", v: "6.16.1" },
+  { name: "Bash", v: "5.3" },
+  { name: "Coreutils", v: "9.7" },
+  { name: "Systemd", v: "257.8" },
+  { name: "GRUB", v: "2.12" },
 ];
 
 export default function Home() {
   return (
     <div className="max-w-5xl mx-auto py-8 px-4 sm:px-6 lg:px-8 pb-24">
-      {/* AVISO — em destaque */}
+      {/* AVISO */}
       <div className="mb-10 rounded-2xl border-2 border-yellow-500/40 bg-gradient-to-br from-yellow-500/10 to-orange-500/5 overflow-hidden">
         <div className="flex items-center gap-2 px-5 py-3 bg-yellow-500/15 border-b border-yellow-500/30">
           <ShieldAlert className="w-5 h-5 text-yellow-400" />
@@ -106,7 +116,10 @@ export default function Home() {
             de <strong>20 a 40 horas</strong> de máquina para a build completa
             (dependendo do hardware) e tenha paciência: cada erro é uma aula.
           </p>
-          <Link href="/aviso-legal" className="inline-flex items-center gap-2 px-4 py-2 mt-1 bg-yellow-500/15 hover:bg-yellow-500/25 text-yellow-300 border border-yellow-500/30 rounded-lg text-sm font-semibold transition-colors">
+          <Link
+            href="/aviso-legal"
+            className="inline-flex items-center gap-2 px-4 py-2 mt-1 bg-yellow-500/15 hover:bg-yellow-500/25 text-yellow-300 border border-yellow-500/30 rounded-lg text-sm font-semibold transition-colors"
+          >
             Ler o capítulo completo de Cuidados & Avisos
             <ChevronRight className="w-4 h-4" />
           </Link>
@@ -117,90 +130,94 @@ export default function Home() {
       <div className="text-center mb-16 mt-4">
         <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium mb-6">
           <Sparkles className="w-4 h-4" />
-          Guia Completo em Português Brasileiro — LFS 12.x
+          Guia Completo em Português Brasileiro — LFS 12.4 (estável)
         </div>
-        <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
-          Linux From <span className="text-primary">Scratch</span>
+        <h1 className="text-5xl sm:text-6xl font-bold mb-6 bg-gradient-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent leading-tight">
+          Linux From Scratch
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-          Construa sua própria distribuição Linux a partir do <strong className="text-foreground">código-fonte</strong>.
-          Sem instalador, sem gerenciador de pacotes, sem mágica — só você, um host de boot, um
-          compilador e o livro inteiro traduzido e explicado em português.
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          Construa sua própria distribuição Linux do código-fonte — alinhado com a
+          documentação oficial <strong>LFS 12.4</strong>. Da partição vazia ao primeiro
+          boot, passando por toolchain cross, chroot, sistema final, kernel e GRUB.
         </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-8">
-          <Link href="/comece-aqui" className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:opacity-90 transition-opacity">
-            Começar do Zero
-            <ChevronRight className="w-4 h-4" />
-          </Link>
-          <Link href="/o-que-e-lfs" className="inline-flex items-center gap-2 px-6 py-3 bg-muted text-foreground rounded-lg font-semibold hover:bg-muted/70 transition-colors border border-border">
-            O que é o LFS?
-          </Link>
-        </div>
       </div>
 
       {/* STATS */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
         {stats.map((s) => (
-          <div key={s.label} className="rounded-xl border border-border bg-card p-5 text-center">
-            <div className="text-3xl font-extrabold text-primary mb-1">{s.value}</div>
-            <div className="text-xs uppercase tracking-wider text-muted-foreground font-medium">{s.label}</div>
+          <div
+            key={s.label}
+            className="rounded-xl border border-border bg-card/50 p-5 text-center"
+          >
+            <div className="text-3xl font-bold text-primary mb-1">{s.value}</div>
+            <div className="text-xs uppercase tracking-wider text-muted-foreground">
+              {s.label}
+            </div>
           </div>
         ))}
       </div>
 
-      {/* SECTIONS GRID */}
-      <h2 className="text-2xl font-bold mb-6 mt-0 border-none p-0">Roteiro do Livro</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
+      {/* VERSÕES — LFS 12.4 */}
+      <div className="mb-16 rounded-2xl border border-border bg-card/30 overflow-hidden">
+        <div className="px-5 py-3 bg-primary/5 border-b border-border">
+          <h2 className="text-sm font-bold uppercase tracking-wider text-primary m-0">
+            Versões cobertas — LFS 12.4 estável
+          </h2>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border">
+          {versions.map((p) => (
+            <div key={p.name} className="bg-card px-4 py-3">
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">
+                {p.name}
+              </div>
+              <div className="font-mono text-sm font-bold text-foreground">{p.v}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* SEÇÕES */}
+      <div className="grid gap-4 sm:grid-cols-2 mb-12">
         {sections.map((s) => {
           const Icon = s.icon;
           return (
             <Link
               key={s.href}
               href={s.href}
-              className="group rounded-xl border border-border bg-card p-5 hover:border-primary/50 hover:shadow-lg transition-all block"
+              className="group rounded-xl border border-border bg-card/50 hover:bg-card hover:border-primary/40 transition-all p-5 flex gap-4"
             >
-              <div className={`w-10 h-10 rounded-lg ${s.color} flex items-center justify-center mb-3`}>
-                <Icon className="w-5 h-5" />
+              <div
+                className={`shrink-0 w-12 h-12 rounded-lg flex items-center justify-center ${s.color}`}
+              >
+                <Icon className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-foreground mb-1 mt-0 text-base group-hover:text-primary transition-colors">
-                {s.title}
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed m-0">{s.desc}</p>
+              <div className="min-w-0">
+                <h3 className="font-bold text-base mb-1 group-hover:text-primary transition-colors">
+                  {s.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed m-0">
+                  {s.desc}
+                </p>
+              </div>
             </Link>
           );
         })}
       </div>
 
-      {/* WHY LFS */}
-      <div className="rounded-2xl border border-border bg-card/50 p-8 mb-12">
-        <h2 className="text-2xl font-bold mb-4 mt-0 border-none p-0">Por que ler este livro?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm leading-relaxed text-foreground/85">
-          <div>
-            <p>
-              Você vai aprender — de verdade — <strong>como um sistema Linux funciona</strong>:
-              o que é uma toolchain, por que a Glibc é construída duas vezes, qual o papel
-              do <code>/sysroot</code>, como o kernel encontra o init, como o GRUB carrega
-              tudo. Nenhum tutorial supérfluo: cada comando tem uma razão, e o livro
-              explica essa razão.
-            </p>
-          </div>
-          <div>
-            <p>
-              Quando terminar, troubleshooting em qualquer distro vai parecer trivial.
-              Erros de <code>ld.so</code>, problemas de <code>$PATH</code>, kernel que
-              não dá boot, libs faltando — depois do LFS você sabe exatamente onde
-              olhar e o que está acontecendo por baixo.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* FOOTER NOTE */}
-      <div className="text-center text-sm text-muted-foreground">
-        Baseado no <strong className="text-foreground">Linux From Scratch Book</strong> oficial
-        (<a href="https://www.linuxfromscratch.org/" target="_blank" rel="noopener noreferrer" className="text-primary">linuxfromscratch.org</a>)
-        — adaptado, traduzido e expandido para iniciantes em português brasileiro.
+      {/* CTA */}
+      <div className="rounded-2xl border border-primary/30 bg-gradient-to-br from-primary/10 to-orange-500/5 p-6 text-center">
+        <h2 className="text-2xl font-bold mb-2">Pronto para começar?</h2>
+        <p className="text-muted-foreground mb-5 max-w-2xl mx-auto">
+          Vá para os pré-requisitos do hospedeiro, prepare a partição do LFS e baixe os
+          85 pacotes da release 12.4. O livro guia você passo a passo.
+        </p>
+        <Link
+          href="/comece-aqui"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+        >
+          Comece pelo capítulo 1
+          <ChevronRight className="w-4 h-4" />
+        </Link>
       </div>
     </div>
   );

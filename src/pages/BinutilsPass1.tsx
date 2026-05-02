@@ -25,8 +25,8 @@ export default function BinutilsPass1() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf binutils-2.42.tar.xz
-cd binutils-2.42
+tar -xf binutils-2.45.tar.xz
+cd binutils-2.45
 mkdir -v build
 cd build`}
       />
@@ -73,7 +73,7 @@ cd build`}
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-rm -rf binutils-2.42`}
+rm -rf binutils-2.45`}
       />
 
       <AlertBox type="success" title="Concluído!">

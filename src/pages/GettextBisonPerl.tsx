@@ -20,12 +20,12 @@ export default function GettextBisonPerl() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf gettext-0.22.5.tar.xz && cd gettext-0.22.5
+tar -xf gettext-0.26.tar.xz && cd gettext-0.26
 
 ./configure --disable-shared
 make
 cp -v gettext-tools/src/{msgfmt,msgmerge,xgettext} /usr/bin
-cd .. && rm -rf gettext-0.22.5`}
+cd .. && rm -rf gettext-0.26`}
       />
 
       <h2>Bison</h2>
@@ -40,7 +40,7 @@ cd .. && rm -rf bison-3.8.2`}
       <h2>Perl</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf perl-5.40.0.tar.xz && cd perl-5.40.0
+        code={`tar -xf perl-5.42.0.tar.xz && cd perl-5.42.0
 
 sh Configure -des                                         \\
              -D prefix=/usr                               \\
@@ -54,7 +54,7 @@ sh Configure -des                                         \\
              -D vendorarch=/usr/lib/perl5/5.40/vendor_perl
 
 make && make install
-cd .. && rm -rf perl-5.40.0`}
+cd .. && rm -rf perl-5.42.0`}
       />
 
       <h2>Python</h2>
@@ -69,16 +69,16 @@ cd .. && rm -rf Python-3.12.5`}
       <h2>Texinfo</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf texinfo-7.1.tar.xz && cd texinfo-7.1
+        code={`tar -xf texinfo-7.2.tar.xz && cd texinfo-7.2
 ./configure --prefix=/usr
 make && make install
-cd .. && rm -rf texinfo-7.1`}
+cd .. && rm -rf texinfo-7.2`}
       />
 
       <h2>Util-linux</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf util-linux-2.40.2.tar.xz && cd util-linux-2.40.2
+        code={`tar -xf util-linux-2.41.1.tar.xz && cd util-linux-2.41.1
 
 mkdir -pv /var/lib/hwclock
 
@@ -94,10 +94,10 @@ mkdir -pv /var/lib/hwclock
             --disable-static      \\
             --without-python      \\
             ADJTIME_PATH=/var/lib/hwclock/adjtime \\
-            --docdir=/usr/share/doc/util-linux-2.40.2
+            --docdir=/usr/share/doc/util-linux-2.41.1
 
 make && make install
-cd .. && rm -rf util-linux-2.40.2`}
+cd .. && rm -rf util-linux-2.41.1`}
       />
     </PageContainer>
   );

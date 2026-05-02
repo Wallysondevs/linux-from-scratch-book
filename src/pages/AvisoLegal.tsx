@@ -73,7 +73,7 @@ export default function AvisoLegal() {
           Creative Commons BY-NC-SA 2.0
         </a>
         . Este livro é uma adaptação <strong>educacional</strong> em português,
-        baseada na versão LFS 12.x estável. Sempre consulte também o livro oficial
+        baseada na versão LFS 12.4 estável. Sempre consulte também o livro oficial
         em <a href="https://www.linuxfromscratch.org/" target="_blank" rel="noopener noreferrer">linuxfromscratch.org</a> —
         ele é a fonte canônica e tem versões atualizadas frequentemente.
       </p>

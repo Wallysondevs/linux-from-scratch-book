@@ -5,13 +5,13 @@ export default function VersaoLFS() {
   return (
     <PageContainer
       title="Versão do LFS Coberta neste Livro"
-      subtitle="Compatível com a série LFS 12.x (estável e stable-systemd) — adaptável a versões mais novas."
+      subtitle="Compatível com a série LFS 12.4 (estável e stable-systemd) — adaptável a versões mais novas."
       difficulty="iniciante"
       timeToRead="3 min"
     >
       <h2>Qual versão usamos como base?</h2>
       <p>
-        Este livro foi escrito tomando como referência o <strong>LFS 12.x estável</strong>{" "}
+        Este livro foi escrito tomando como referência o <strong>LFS 12.4 estável</strong>{" "}
         (e a edição <em>stable-systemd</em>), com kernel <strong>6.x</strong>,
         Glibc <strong>2.40+</strong>, GCC <strong>14.x</strong> e Binutils{" "}
         <strong>2.42+</strong>. As instruções continuam valendo para versões

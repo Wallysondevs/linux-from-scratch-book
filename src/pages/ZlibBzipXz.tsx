@@ -57,11 +57,11 @@ cd .. && rm -rf xz-5.6.2`}
       <h2>Zstd</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf zstd-1.5.6.tar.gz && cd zstd-1.5.6
+        code={`tar -xf zstd-1.5.7.tar.gz && cd zstd-1.5.7
 make prefix=/usr
 make prefix=/usr install
 rm -v /usr/lib/libzstd.a
-cd .. && rm -rf zstd-1.5.6`}
+cd .. && rm -rf zstd-1.5.7`}
       />
     </PageContainer>
   );

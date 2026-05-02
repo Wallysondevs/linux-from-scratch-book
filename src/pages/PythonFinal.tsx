@@ -34,19 +34,19 @@ cd .. && rm -rf Python-3.12.5`}
       <h2>Wheel</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf wheel-0.44.0.tar.gz && cd wheel-0.44.0
+        code={`tar -xf wheel-0.46.1.tar.gz && cd wheel-0.46.1
 pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 pip3 install --no-index --find-links=dist wheel
-cd .. && rm -rf wheel-0.44.0`}
+cd .. && rm -rf wheel-0.46.1`}
       />
 
       <h2>Setuptools</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf setuptools-72.2.0.tar.gz && cd setuptools-72.2.0
+        code={`tar -xf setuptools-80.9.0.tar.gz && cd setuptools-80.9.0
 pip3 wheel -w dist --no-cache-dir --no-build-isolation --no-deps $PWD
 pip3 install --no-index --find-links dist setuptools
-cd .. && rm -rf setuptools-72.2.0`}
+cd .. && rm -rf setuptools-80.9.0`}
       />
 
       <h2>Ninja</h2>

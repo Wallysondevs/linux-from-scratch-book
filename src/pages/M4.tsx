@@ -13,8 +13,8 @@ export default function M4() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf m4-1.4.19.tar.xz
-cd m4-1.4.19
+tar -xf m4-1.4.20.tar.xz
+cd m4-1.4.20
 
 ./configure --prefix=/usr   \\
             --host=$LFS_TGT \\
@@ -24,7 +24,7 @@ make
 make DESTDIR=$LFS install
 
 cd $LFS/sources
-rm -rf m4-1.4.19`}
+rm -rf m4-1.4.20`}
       />
 
       <p className="text-sm text-muted-foreground mt-4">

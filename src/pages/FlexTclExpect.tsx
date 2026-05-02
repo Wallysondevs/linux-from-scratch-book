@@ -24,7 +24,7 @@ cd .. && rm -rf flex-2.6.4`}
       <h2>Tcl</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf tcl8.6.14-src.tar.gz && cd tcl8.6.14
+        code={`tar -xf tcl8.6.16-src.tar.gz && cd tcl8.6.16
 SRCDIR=$(pwd)
 cd unix
 ./configure --prefix=/usr --mandir=/usr/share/man
@@ -35,7 +35,7 @@ chmod -v u+w /usr/lib/libtcl8.6.so
 make install-private-headers
 ln -sfv tclsh8.6 /usr/bin/tclsh
 mv /usr/share/man/man3/{Thread,Tcl_Thread}.3
-cd ../.. && rm -rf tcl8.6.14`}
+cd ../.. && rm -rf tcl8.6.16`}
       />
 
       <h2>Expect</h2>

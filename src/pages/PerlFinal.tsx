@@ -13,7 +13,7 @@ export default function PerlFinal() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf perl-5.40.0.tar.xz && cd perl-5.40.0
+tar -xf perl-5.42.0.tar.xz && cd perl-5.42.0
 
 export BUILD_ZLIB=False
 export BUILD_BZIP2=0
@@ -37,7 +37,7 @@ make
 make test
 make install
 unset BUILD_ZLIB BUILD_BZIP2
-cd .. && rm -rf perl-5.40.0`}
+cd .. && rm -rf perl-5.42.0`}
       />
 
       <h2>XML::Parser</h2>

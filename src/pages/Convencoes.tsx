@@ -34,7 +34,7 @@ sudo mkdir -pv /mnt/lfs`}
         language="bash"
         code={`# prompt típico do usuário lfs
 lfs:~$ cd $LFS/sources
-lfs:/mnt/lfs/sources$ tar -xf binutils-2.42.tar.xz`}
+lfs:/mnt/lfs/sources$ tar -xf binutils-2.45.tar.xz`}
       />
 
       <h3>3. Dentro do chroot</h3>
@@ -45,7 +45,7 @@ lfs:/mnt/lfs/sources$ tar -xf binutils-2.42.tar.xz`}
       <CodeBlock
         language="bash"
         code={`(lfs chroot) # cd /sources
-(lfs chroot) # tar -xf glibc-2.40.tar.xz`}
+(lfs chroot) # tar -xf glibc-2.42.tar.xz`}
       />
 
       <AlertBox type="warning" title="Confunde tudo?">
@@ -75,8 +75,8 @@ lfs:/mnt/lfs/sources$ tar -xf binutils-2.42.tar.xz`}
 
       <h2>Versões dos pacotes</h2>
       <p>
-        Exemplos do livro usam versões como <code>binutils-2.42</code>,{" "}
-        <code>gcc-14.2.0</code>, <code>glibc-2.40</code>. Quando você baixar, as
+        Exemplos do livro usam versões como <code>binutils-2.45</code>,{" "}
+        <code>gcc-15.2.0</code>, <code>glibc-2.42</code>. Quando você baixar, as
         versões podem ser <em>maiores</em>. Adapte os comandos. Use{" "}
         <code>tar tf arquivo.tar.xz | head</code> para ver o nome real do
         diretório extraído.

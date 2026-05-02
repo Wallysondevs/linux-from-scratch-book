@@ -29,7 +29,7 @@ cd .. && rm -rf gmp-6.3.0`}
       <h2>MPFR</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf mpfr-4.2.1.tar.xz && cd mpfr-4.2.1
+        code={`tar -xf mpfr-4.2.2.tar.xz && cd mpfr-4.2.2
 sed -e 's/+01,234,567/+1,234,567 /' \\
     -e 's/13.10Pd/13Pd/'            \\
     -i tests/tsprintf.c
@@ -37,12 +37,12 @@ sed -e 's/+01,234,567/+1,234,567 /' \\
 ./configure --prefix=/usr        \\
             --disable-static     \\
             --enable-thread-safe \\
-            --docdir=/usr/share/doc/mpfr-4.2.1
+            --docdir=/usr/share/doc/mpfr-4.2.2
 make
 make html
 make install
 make install-html
-cd .. && rm -rf mpfr-4.2.1`}
+cd .. && rm -rf mpfr-4.2.2`}
       />
 
       <h2>MPC</h2>

@@ -62,11 +62,11 @@ cd .. && rm -rf psmisc-23.7`}
       <h2>Gettext (final)</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf gettext-0.22.5.tar.xz && cd gettext-0.22.5
-./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/gettext-0.22.5
+        code={`tar -xf gettext-0.26.tar.xz && cd gettext-0.26
+./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/gettext-0.26
 make && make install
 chmod 0755 /usr/lib/preloadable_libintl.so
-cd .. && rm -rf gettext-0.22.5`}
+cd .. && rm -rf gettext-0.26`}
       />
     </PageContainer>
   );

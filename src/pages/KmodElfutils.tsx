@@ -13,12 +13,12 @@ export default function KmodElfutils() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf libffi-3.4.6.tar.gz && cd libffi-3.4.6
+tar -xf libffi-3.5.2.tar.gz && cd libffi-3.5.2
 ./configure --prefix=/usr          \\
             --disable-static       \\
             --with-gcc-arch=native
 make && make install
-cd .. && rm -rf libffi-3.4.6`}
+cd .. && rm -rf libffi-3.5.2`}
       />
 
       <h2>Kmod</h2>
@@ -44,14 +44,14 @@ cd .. && rm -rf kmod-32`}
       <h2>Elfutils</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf elfutils-0.191.tar.bz2 && cd elfutils-0.191
+        code={`tar -xf elfutils-0.193.tar.bz2 && cd elfutils-0.193
 ./configure --prefix=/usr                 \\
             --disable-debuginfod          \\
             --enable-libdebuginfod=dummy
 
 make && make install
 rm /usr/lib/lib{asm,debuginfod,dw,elf}.a
-cd .. && rm -rf elfutils-0.191`}
+cd .. && rm -rf elfutils-0.193`}
       />
     </PageContainer>
   );

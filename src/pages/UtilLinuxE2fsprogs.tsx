@@ -13,7 +13,7 @@ export default function UtilLinuxE2fsprogs() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf util-linux-2.40.2.tar.xz && cd util-linux-2.40.2
+tar -xf util-linux-2.41.1.tar.xz && cd util-linux-2.41.1
 
 ./configure ADJTIME_PATH=/var/lib/hwclock/adjtime \\
             --bindir=/usr/bin                     \\
@@ -31,16 +31,16 @@ tar -xf util-linux-2.40.2.tar.xz && cd util-linux-2.40.2
             --without-python                      \\
             --without-systemd                     \\
             --without-systemdsystemunitdir        \\
-            --docdir=/usr/share/doc/util-linux-2.40.2
+            --docdir=/usr/share/doc/util-linux-2.41.1
 
 make && make install
-cd .. && rm -rf util-linux-2.40.2`}
+cd .. && rm -rf util-linux-2.41.1`}
       />
 
       <h2>E2fsprogs</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf e2fsprogs-1.47.1.tar.gz && cd e2fsprogs-1.47.1
+        code={`tar -xf e2fsprogs-1.47.3.tar.gz && cd e2fsprogs-1.47.3
 
 mkdir -v build && cd build
 
@@ -59,7 +59,7 @@ rm -fv /usr/lib/{libcom_err,libe2p,libext2fs,libss}.a
 gunzip -v /usr/share/info/libext2fs.info.gz
 install-info --dir-file=/usr/share/info/dir /usr/share/info/libext2fs.info
 
-cd ../.. && rm -rf e2fsprogs-1.47.1`}
+cd ../.. && rm -rf e2fsprogs-1.47.3`}
       />
     </PageContainer>
   );

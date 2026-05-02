@@ -32,12 +32,12 @@ cd .. && rm -rf grep-3.11`}
       <h2>Bash (final)</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf bash-5.2.32.tar.gz && cd bash-5.2.32
+        code={`tar -xf bash-5.3.tar.gz && cd bash-5.3
 
 ./configure --prefix=/usr        \\
             --without-bash-malloc \\
             --with-installed-readline \\
-            --docdir=/usr/share/doc/bash-5.2.32
+            --docdir=/usr/share/doc/bash-5.3
 
 make
 chown -Rv tester .
@@ -51,17 +51,17 @@ EOF
 
 make install
 exec /usr/bin/bash --login
-cd /sources && rm -rf bash-5.2.32`}
+cd /sources && rm -rf bash-5.3`}
       />
 
       <h2>Libtool</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf libtool-2.4.7.tar.xz && cd libtool-2.4.7
+        code={`tar -xf libtool-2.5.4.tar.xz && cd libtool-2.5.4
 ./configure --prefix=/usr
 make && make install
 rm -fv /usr/lib/libltdl.a
-cd .. && rm -rf libtool-2.4.7`}
+cd .. && rm -rf libtool-2.5.4`}
       />
     </PageContainer>
   );

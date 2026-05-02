@@ -70,12 +70,12 @@ md5sum -c md5sums | grep -v ': OK$'
       <CodeBlock
         language="bash"
         code={`ls $LFS/sources/ | head -20
-# binutils-2.42.tar.xz
-# gcc-14.2.0.tar.xz
-# glibc-2.40.tar.xz
+# binutils-2.45.tar.xz
+# gcc-15.2.0.tar.xz
+# glibc-2.42.tar.xz
 # kernel-6.10.x.tar.xz
-# bash-5.2.tar.gz
-# coreutils-9.5.tar.xz
+# bash-5.3.tar.gz
+# coreutils-9.7.tar.xz
 # ... e dezenas de outros`}
       />
 

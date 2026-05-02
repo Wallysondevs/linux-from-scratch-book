@@ -13,8 +13,8 @@ export default function CoreutilsTemp() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf coreutils-9.5.tar.xz
-cd coreutils-9.5
+tar -xf coreutils-9.7.tar.xz
+cd coreutils-9.7
 
 ./configure --prefix=/usr                     \\
             --host=$LFS_TGT                   \\
@@ -32,7 +32,7 @@ mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 
 cd $LFS/sources
-rm -rf coreutils-9.5`}
+rm -rf coreutils-9.7`}
       />
     </PageContainer>
   );

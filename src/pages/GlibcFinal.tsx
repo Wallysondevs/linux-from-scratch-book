@@ -14,9 +14,9 @@ export default function GlibcFinal() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf glibc-2.40.tar.xz && cd glibc-2.40
+tar -xf glibc-2.42.tar.xz && cd glibc-2.42
 
-patch -Np1 -i ../glibc-2.40-fhs-1.patch
+patch -Np1 -i ../glibc-2.42-fhs-1.patch
 
 mkdir -v build && cd build
 
@@ -83,7 +83,7 @@ zic -d $ZONEINFO -p America/Sao_Paulo
 ln -sfv /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 
 cd .. && cd ..
-rm -rf glibc-2.40`}
+rm -rf glibc-2.42`}
       />
 
       <AlertBox type="success" title="Glibc final instalada">

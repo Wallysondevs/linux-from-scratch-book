@@ -21,8 +21,8 @@ export default function LinuxHeaders() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf linux-6.10.5.tar.xz
-cd linux-6.10.5
+tar -xf linux-6.16.1.tar.xz
+cd linux-6.16.1
 
 make mrproper        # limpa qualquer resíduo`}
       />
@@ -39,7 +39,7 @@ cp -rv usr/include $LFS/usr`}
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-rm -rf linux-6.10.5`}
+rm -rf linux-6.16.1`}
       />
 
       <AlertBox type="info" title="O kernel real virá depois">

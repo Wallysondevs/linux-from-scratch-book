@@ -21,7 +21,7 @@ export default function Systemd() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf systemd-256.4.tar.gz && cd systemd-256.4
+tar -xf systemd-257.8.tar.gz && cd systemd-257.8
 
 sed -i -e 's/GROUP="render"/GROUP="video"/' \\
        -e 's/GROUP="sgx", //' rules.d/50-udev-default.rules.in
@@ -45,25 +45,25 @@ meson setup ..                              \\
 ninja
 ninja install
 
-tar -xf ../../systemd-man-pages-256.4.tar.xz \\
+tar -xf ../../systemd-man-pages-6.15.tar.xz \\
   --no-same-owner --strip-components=1 \\
   -C /usr/share/man
 
 systemd-machine-id-setup
 systemctl preset-all
 
-cd ../.. && rm -rf systemd-256.4`}
+cd ../.. && rm -rf systemd-257.8`}
       />
 
       <h2>Caminho B — SysV-Init (didático e minimalista)</h2>
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf sysvinit-3.10.tar.xz && cd sysvinit-3.10
-patch -Np1 -i ../sysvinit-3.10-consolidated-1.patch
+tar -xf sysvinit-3.14.tar.xz && cd sysvinit-3.14
+patch -Np1 -i ../sysvinit-3.14-consolidated-1.patch
 make
 make install
-cd .. && rm -rf sysvinit-3.10`}
+cd .. && rm -rf sysvinit-3.14`}
       />
 
       <p>

@@ -19,11 +19,11 @@ export default function GccPass1() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf gcc-14.2.0.tar.xz
-cd gcc-14.2.0
+tar -xf gcc-15.2.0.tar.xz
+cd gcc-15.2.0
 
-tar -xf ../mpfr-4.2.1.tar.xz
-mv -v mpfr-4.2.1 mpfr
+tar -xf ../mpfr-4.2.2.tar.xz
+mv -v mpfr-4.2.2 mpfr
 tar -xf ../gmp-6.3.0.tar.xz
 mv -v gmp-6.3.0 gmp
 tar -xf ../mpc-1.3.1.tar.gz
@@ -111,7 +111,7 @@ cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \\
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-rm -rf gcc-14.2.0`}
+rm -rf gcc-15.2.0`}
       />
 
       <AlertBox type="success" title="Cross-compiler pronto!">

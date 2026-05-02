@@ -35,10 +35,10 @@ cd .. && rm -rf dbus-1.14.10`}
       <h2>Man-DB</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf man-db-2.12.1.tar.xz && cd man-db-2.12.1
+        code={`tar -xf man-db-2.13.1.tar.xz && cd man-db-2.13.1
 
 ./configure --prefix=/usr                         \\
-            --docdir=/usr/share/doc/man-db-2.12.1 \\
+            --docdir=/usr/share/doc/man-db-2.13.1 \\
             --sysconfdir=/etc                     \\
             --disable-setuid                      \\
             --enable-cache-owner=bin              \\
@@ -49,7 +49,7 @@ cd .. && rm -rf dbus-1.14.10`}
             --with-systemdsystemunitdir=
 
 make && make install
-cd .. && rm -rf man-db-2.12.1`}
+cd .. && rm -rf man-db-2.13.1`}
       />
 
       <h2>Procps-ng</h2>

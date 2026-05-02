@@ -27,12 +27,12 @@ cd .. && rm -rf grep-3.11`}
       <h2>Gzip</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf gzip-1.13.tar.xz && cd gzip-1.13
+        code={`tar -xf gzip-1.14.tar.xz && cd gzip-1.14
 
 ./configure --prefix=/usr --host=$LFS_TGT
 make
 make DESTDIR=$LFS install
-cd .. && rm -rf gzip-1.13`}
+cd .. && rm -rf gzip-1.14`}
       />
 
       <h2>Make</h2>

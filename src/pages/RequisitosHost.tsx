@@ -10,7 +10,7 @@ export default function RequisitosHost() {
       difficulty="iniciante"
       timeToRead="5 min"
     >
-      <h2>Versões mínimas exigidas pelo LFS 12.x</h2>
+      <h2>Versões mínimas exigidas pelo LFS 12.4</h2>
       <p>O livro oficial exige (no mínimo) as seguintes versões instaladas no host:</p>
       <ul>
         <li>Bash &ge; 3.2 (link <code>/bin/sh</code> apontando para bash ou compatível)</li>
@@ -45,7 +45,7 @@ export default function RequisitosHost() {
         language="bash"
         code={`cat > version-check.sh << "EOF"
 #!/bin/bash
-# Versões mínimas para LFS 12.x
+# Versões mínimas para LFS 12.4
 export LC_ALL=C
 bash --version | head -n1 | cut -d" " -f2-4
 MYSH=$(readlink -f /bin/sh)

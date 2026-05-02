@@ -13,35 +13,35 @@ export default function GdbmGperfExpat() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf gdbm-1.24.tar.gz && cd gdbm-1.24
+tar -xf gdbm-1.26.tar.gz && cd gdbm-1.26
 ./configure --prefix=/usr --disable-static --enable-libgdbm-compat
 make && make install
-cd .. && rm -rf gdbm-1.24`}
+cd .. && rm -rf gdbm-1.26`}
       />
 
       <h2>Gperf</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf gperf-3.1.tar.gz && cd gperf-3.1
-./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.1
+        code={`tar -xf gperf-3.3.tar.gz && cd gperf-3.3
+./configure --prefix=/usr --docdir=/usr/share/doc/gperf-3.3
 make && make install
-cd .. && rm -rf gperf-3.1`}
+cd .. && rm -rf gperf-3.3`}
       />
 
       <h2>Expat</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf expat-2.6.2.tar.xz && cd expat-2.6.2
-./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/expat-2.6.2
+        code={`tar -xf expat-2.7.1.tar.xz && cd expat-2.7.1
+./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/expat-2.7.1
 make && make install
-install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.6.2 || true
-cd .. && rm -rf expat-2.6.2`}
+install -v -m644 doc/*.{html,css} /usr/share/doc/expat-2.7.1 || true
+cd .. && rm -rf expat-2.7.1`}
       />
 
       <h2>Inetutils</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf inetutils-2.5.tar.xz && cd inetutils-2.5
+        code={`tar -xf inetutils-2.6.tar.xz && cd inetutils-2.6
 
 ./configure --prefix=/usr        \\
             --bindir=/usr/bin    \\
@@ -55,7 +55,7 @@ cd .. && rm -rf expat-2.6.2`}
             --disable-servers
 make && make install
 mv -v /usr/{,s}bin/ifconfig
-cd .. && rm -rf inetutils-2.5`}
+cd .. && rm -rf inetutils-2.6`}
       />
 
       <h2>Less</h2>

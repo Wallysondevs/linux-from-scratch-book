@@ -13,18 +13,18 @@ export default function BinutilsFinal() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf pkgconf-2.3.0.tar.xz && cd pkgconf-2.3.0
-./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/pkgconf-2.3.0
+tar -xf pkgconf-2.5.1.tar.xz && cd pkgconf-2.5.1
+./configure --prefix=/usr --disable-static --docdir=/usr/share/doc/pkgconf-2.5.1
 make && make install
 ln -sv pkgconf   /usr/bin/pkg-config
 ln -sv pkgconf.1 /usr/share/man/man1/pkg-config.1
-cd .. && rm -rf pkgconf-2.3.0`}
+cd .. && rm -rf pkgconf-2.5.1`}
       />
 
       <h2>Binutils (final)</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf binutils-2.42.tar.xz && cd binutils-2.42
+        code={`tar -xf binutils-2.45.tar.xz && cd binutils-2.45
 
 mkdir -v build && cd build
 
@@ -46,7 +46,7 @@ grep '^FAIL:' $(find -name '*.log')
 make tooldir=/usr install
 
 rm -rfv /usr/lib/lib{bfd,ctf,ctf-nobfd,opcodes,sframe}.a
-cd ../.. && rm -rf binutils-2.42`}
+cd ../.. && rm -rf binutils-2.45`}
       />
     </PageContainer>
   );

@@ -1,6 +1,6 @@
 # Linux From Scratch — Livro Completo em Português
 
-Guia interativo do **Linux From Scratch (LFS)** traduzido e explicado em **português brasileiro**, cobrindo a versão LFS 12.x do início ao fim: requisitos do host, partição, toolchain temporária, chroot, build do sistema final, configuração, kernel, GRUB e primeiro boot. Inclui uma introdução prática ao **BLFS** (Beyond Linux From Scratch) com Xorg, ambientes desktop, rede, segurança e gerenciamento de pacotes.
+Guia interativo do **Linux From Scratch (LFS)** traduzido e explicado em **português brasileiro**, cobrindo a versão LFS 12.4 estável do início ao fim: requisitos do host, partição, toolchain temporária, chroot, build do sistema final, configuração, kernel, GRUB e primeiro boot. Inclui uma introdução prática ao **BLFS** (Beyond Linux From Scratch) com Xorg, ambientes desktop, rede, segurança e gerenciamento de pacotes.
 
 > Construa sua própria distribuição Linux a partir do código-fonte. Sem instalador, sem gerenciador de pacotes, sem mágica — só você, um host de boot, um compilador e o livro inteiro em português.
 
@@ -15,7 +15,7 @@ Guia interativo do **Linux From Scratch (LFS)** traduzido e explicado em **portu
 
 ## Conteúdo
 
-Mais de 75 páginas cobrindo:
+Mais de 85 páginas alinhadas com a documentação oficial **LFS 12.4** cobrindo:
 
 - **Comece Aqui** — aviso legal, o que é o LFS, pré-requisitos, convenções, versão coberta
 - **Preparando o Hospedeiro** — `version-check`, particionamento, sistema de arquivos, `/mnt/lfs`, `/sources`, usuário e ambiente do LFS, SBUs e test suites

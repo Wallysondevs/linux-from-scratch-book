@@ -14,8 +14,8 @@ export default function Kernel() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf linux-6.10.5.tar.xz
-cd linux-6.10.5
+tar -xf linux-6.16.1.tar.xz
+cd linux-6.16.1
 
 make mrproper       # limpa qualquer config residual`}
       />
@@ -64,10 +64,10 @@ make modules_install`}
 cp -iv System.map                /boot/System.map-6.10.5
 cp -iv .config                   /boot/config-6.10.5
 
-install -d /usr/share/doc/linux-6.10.5
-cp -r Documentation/* /usr/share/doc/linux-6.10.5
+install -d /usr/share/doc/linux-6.16.1
+cp -r Documentation/* /usr/share/doc/linux-6.16.1
 
-cd /sources && rm -rf linux-6.10.5`}
+cd /sources && rm -rf linux-6.16.1`}
       />
 
       <h2>Configurando o linker dinâmico do kernel</h2>

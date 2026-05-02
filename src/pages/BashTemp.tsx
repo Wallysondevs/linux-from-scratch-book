@@ -13,8 +13,8 @@ export default function BashTemp() {
       <CodeBlock
         language="bash"
         code={`cd $LFS/sources
-tar -xf bash-5.2.32.tar.gz
-cd bash-5.2.32
+tar -xf bash-5.3.tar.gz
+cd bash-5.3
 
 ./configure --prefix=/usr                      \\
             --build=$(sh support/config.guess) \\
@@ -28,7 +28,7 @@ make DESTDIR=$LFS install
 ln -sv bash $LFS/bin/sh
 
 cd $LFS/sources
-rm -rf bash-5.2.32`}
+rm -rf bash-5.3`}
       />
     </PageContainer>
   );

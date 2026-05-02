@@ -13,11 +13,11 @@ export default function ManPages() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf man-pages-6.9.1.tar.xz && cd man-pages-6.9.1
+tar -xf man-pages-6.15.tar.xz && cd man-pages-6.15
 
 rm -v man3/crypt*
 make prefix=/usr install
-cd .. && rm -rf man-pages-6.9.1`}
+cd .. && rm -rf man-pages-6.15`}
       />
 
       <h2>Iana-Etc</h2>

@@ -14,7 +14,7 @@ export default function GccFinal() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf gcc-14.2.0.tar.xz && cd gcc-14.2.0
+tar -xf gcc-15.2.0.tar.xz && cd gcc-15.2.0
 
 case $(uname -m) in
   x86_64)
@@ -61,7 +61,7 @@ ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/14.2.0/liblto_plugin.so \\
 mkdir -pv /usr/share/gdb/auto-load/usr/lib
 mv -v /usr/lib/*gdb.py /usr/share/gdb/auto-load/usr/lib
 
-cd ../.. && rm -rf gcc-14.2.0`}
+cd ../.. && rm -rf gcc-15.2.0`}
       />
 
       <h2>Sanity check pós-instalação</h2>

@@ -14,7 +14,7 @@ export default function TexinfoVim() {
       <CodeBlock
         language="bash"
         code={`cd /sources
-tar -xf texinfo-7.1.tar.xz && cd texinfo-7.1
+tar -xf texinfo-7.2.tar.xz && cd texinfo-7.2
 ./configure --prefix=/usr
 make && make install
 make TEXMF=/usr/share/texmf install-tex 2>/dev/null || true
@@ -24,13 +24,13 @@ pushd /usr/share/info
   do install-info $f dir 2>/dev/null
   done
 popd
-cd .. && rm -rf texinfo-7.1`}
+cd .. && rm -rf texinfo-7.2`}
       />
 
       <h2>Vim</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf vim-9.1.0682.tar.gz && cd vim-9.1.0682
+        code={`tar -xf vim-9.1.1629.tar.gz && cd vim-9.1.1629
 
 echo '#define SYS_VIMRC_FILE "/etc/vimrc"' >> src/feature.h
 
@@ -42,7 +42,7 @@ for L in /usr/share/man/{,*/}man1/vim.1; do
   ln -sv vim.1 $(dirname $L)/vi.1
 done
 
-ln -sv ../vim/vim91/doc /usr/share/doc/vim-9.1.0682
+ln -sv ../vim/vim91/doc /usr/share/doc/vim-9.1.1629
 
 cat > /etc/vimrc << "EOF"
 " /etc/vimrc — defaults sensatos
@@ -54,7 +54,7 @@ set background=dark
 set encoding=utf-8
 set fileencoding=utf-8
 EOF
-cd .. && rm -rf vim-9.1.0682`}
+cd .. && rm -rf vim-9.1.1629`}
       />
 
       <AlertBox type="info" title="Prefere Nano?">

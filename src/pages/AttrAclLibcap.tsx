@@ -32,30 +32,30 @@ cd .. && rm -rf acl-2.3.2`}
       <h2>Libcap</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf libcap-2.70.tar.xz && cd libcap-2.70
+        code={`tar -xf libcap-2.76.tar.xz && cd libcap-2.76
 sed -i '/install -m.*STA/d' libcap/Makefile
 make prefix=/usr lib=lib
 make prefix=/usr lib=lib install
-cd .. && rm -rf libcap-2.70`}
+cd .. && rm -rf libcap-2.76`}
       />
 
       <h2>Libxcrypt</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf libxcrypt-4.4.36.tar.xz && cd libxcrypt-4.4.36
+        code={`tar -xf libxcrypt-4.4.38.tar.xz && cd libxcrypt-4.4.38
 ./configure --prefix=/usr                \\
             --enable-hashes=strong,glibc \\
             --enable-obsolete-api=no     \\
             --disable-static             \\
             --disable-failure-tokens
 make && make install
-cd .. && rm -rf libxcrypt-4.4.36`}
+cd .. && rm -rf libxcrypt-4.4.38`}
       />
 
       <h2>Shadow</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf shadow-4.16.0.tar.xz && cd shadow-4.16.0
+        code={`tar -xf shadow-4.18.0.tar.xz && cd shadow-4.18.0
 
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in
 find man -name Makefile.in -exec sed -i 's/groups\\.1 / /'   {} \\;
@@ -85,7 +85,7 @@ useradd -D --gid 999
 
 passwd root  # define a senha do root agora!
 
-cd .. && rm -rf shadow-4.16.0`}
+cd .. && rm -rf shadow-4.18.0`}
       />
     </PageContainer>
   );

@@ -22,14 +22,14 @@ cd .. && rm -rf diffutils-3.10`}
       <h2>Gawk</h2>
       <CodeBlock
         language="bash"
-        code={`tar -xf gawk-5.3.0.tar.xz && cd gawk-5.3.0
+        code={`tar -xf gawk-5.3.2.tar.xz && cd gawk-5.3.2
 sed -i 's/extras//' Makefile.in
 ./configure --prefix=/usr
 make && make install
 ln -sv gawk.1 /usr/share/man/man1/awk.1
-mkdir -pv                                   /usr/share/doc/gawk-5.3.0
-cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-5.3.0
-cd .. && rm -rf gawk-5.3.0`}
+mkdir -pv                                   /usr/share/doc/gawk-5.3.2
+cp    -v doc/{awkforai.txt,*.{eps,pdf,jpg}} /usr/share/doc/gawk-5.3.2
+cd .. && rm -rf gawk-5.3.2`}
       />
 
       <h2>Findutils</h2>
