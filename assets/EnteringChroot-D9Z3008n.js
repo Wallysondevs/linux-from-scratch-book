@@ -1,0 +1,13 @@
+import{j as o}from"./index-K1a8hxkV.js";import{P as i}from"./PageContainer-BFvVnrCN.js";import{C as e}from"./CodeBlock-DvB8XoAE.js";import{A as s}from"./AlertBox-C_JmkQL6.js";function c(){return o.jsxs(i,{title:"Entrando no Chroot",subtitle:"O comando que muda a raiz do sistema. A partir daqui, você está dentro do LFS.",difficulty:"intermediario",timeToRead:"4 min",children:[o.jsxs("h2",{children:["O comando ",o.jsx("code",{children:"chroot"})]}),o.jsx(e,{language:"bash",code:`chroot "$LFS" /usr/bin/env -i   \\
+    HOME=/root                  \\
+    TERM="$TERM"                \\
+    PS1='(lfs chroot) \\u:\\w\\$ ' \\
+    PATH=/usr/bin:/usr/sbin     \\
+    MAKEFLAGS="-j$(nproc)"      \\
+    TESTSUITEFLAGS="-j$(nproc)" \\
+    /bin/bash --login`}),o.jsx("h3",{children:"Linha por linha"}),o.jsxs("ul",{children:[o.jsxs("li",{children:[o.jsx("code",{children:'chroot "$LFS"'})," — muda a raiz para ",o.jsx("code",{children:"/mnt/lfs"}),"."]}),o.jsxs("li",{children:[o.jsx("code",{children:"/usr/bin/env -i"})," — apaga TODAS as variáveis herdadas."]}),o.jsxs("li",{children:[o.jsx("code",{children:"PS1='(lfs chroot)..."})," — prompt distintivo, para você não se confundir."]}),o.jsxs("li",{children:[o.jsx("code",{children:"PATH=/usr/bin:/usr/sbin"})," — sem ",o.jsx("code",{children:"/tools"}),', porque agora estamos "no destino" — todo o sistema final está em ',o.jsx("code",{children:"/usr"}),"."]}),o.jsxs("li",{children:[o.jsx("code",{children:"MAKEFLAGS=-j$(nproc)"})," — paralelismo nas builds."]}),o.jsxs("li",{children:[o.jsx("code",{children:"--login"})," — shell de login, lê ",o.jsx("code",{children:"/etc/profile"})," se existir."]})]}),o.jsx("h2",{children:"Confirmando que está no chroot"}),o.jsx(e,{language:"bash",code:`# o prompt deve ter "(lfs chroot)"
+ls /
+# bin  dev  etc  lib  lib64  proc  run  sbin  sources  sys  tools  usr  var
+
+uname -a   # ainda mostra o kernel do host (normal)
+cat /etc/os-release 2>/dev/null  # vazio, ainda não criamos`}),o.jsxs(s,{type:"info",title:"Sair do chroot",children:["Quando terminar uma sessão, basta ",o.jsx("code",{children:"exit"})," (ou"," ",o.jsx("code",{children:"logout"}),"). Não esqueça de desmontar os filesystems virtuais depois (umount em ordem inversa)."]}),o.jsxs(s,{type:"warning",title:"Nada de comandos do host aqui",children:["Dentro do chroot, comandos como ",o.jsx("code",{children:"apt"}),", ",o.jsx("code",{children:"systemctl"}),",",o.jsx("code",{children:"vim"})," só funcionam se EXISTIREM em ",o.jsx("code",{children:"/usr/bin"})," do LFS. No início, quase nada existe. Você vai instalar tudo nos próximos capítulos."]})]})}export{c as default};

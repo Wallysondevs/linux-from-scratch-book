@@ -1,0 +1,10 @@
+import{j as a}from"./index-K1a8hxkV.js";import{P as t}from"./PageContainer-BFvVnrCN.js";import{C as r}from"./CodeBlock-DvB8XoAE.js";function c(){return a.jsxs(t,{title:"Patch, Tar (final)",subtitle:"Versões finais. Tar é fundamental para qualquer manipulação de pacotes futuros.",difficulty:"iniciante",timeToRead:"3 min",children:[a.jsx("h2",{children:"Patch"}),a.jsx(r,{language:"bash",code:`cd /sources
+tar -xf patch-2.8.tar.xz && cd patch-2.8
+./configure --prefix=/usr
+make && make install
+cd .. && rm -rf patch-2.8`}),a.jsx("h2",{children:"Tar"}),a.jsx(r,{language:"bash",code:`tar -xf tar-1.35.tar.xz && cd tar-1.35
+FORCE_UNSAFE_CONFIGURE=1 ./configure --prefix=/usr
+make
+make install
+make -C doc install-html docdir=/usr/share/doc/tar-1.35
+cd .. && rm -rf tar-1.35`})]})}export{c as default};

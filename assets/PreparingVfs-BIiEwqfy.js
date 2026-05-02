@@ -1,0 +1,8 @@
+import{j as s}from"./index-K1a8hxkV.js";import{P as o}from"./PageContainer-BFvVnrCN.js";import{C as e}from"./CodeBlock-DvB8XoAE.js";import{A as d}from"./AlertBox-C_JmkQL6.js";function a(){return s.jsxs(o,{title:"Preparando os Filesystems Virtuais",subtitle:"O kernel precisa de /dev, /proc, /sys, /run montados dentro do chroot.",difficulty:"intermediario",timeToRead:"4 min",children:[s.jsx("h2",{children:"Criando os pontos de montagem"}),s.jsx(e,{language:"bash",code:"mkdir -pv $LFS/{dev,proc,sys,run}"}),s.jsxs("h2",{children:["Bind-mount do ",s.jsx("code",{children:"/dev"})," do host"]}),s.jsx(e,{language:"bash",code:"mount -v --bind /dev $LFS/dev"}),s.jsxs("p",{children:["Em vez de criar nodos com ",s.jsx("code",{children:"mknod"}),", montamos o"," ",s.jsx("code",{children:"/dev"})," do host por bind. Mais simples e funciona para qualquer dispositivo."]}),s.jsxs("h2",{children:[s.jsx("code",{children:"devpts"}),", ",s.jsx("code",{children:"proc"}),", ",s.jsx("code",{children:"sysfs"}),", ",s.jsx("code",{children:"tmpfs"})]}),s.jsx(e,{language:"bash",code:`mount -vt devpts devpts -o gid=5,mode=0620 $LFS/dev/pts
+mount -vt proc proc $LFS/proc
+mount -vt sysfs sysfs $LFS/sys
+mount -vt tmpfs tmpfs $LFS/run`}),s.jsxs("h2",{children:[s.jsx("code",{children:"/dev/shm"})," (se o host usa link)"]}),s.jsx(e,{language:"bash",code:`if [ -h $LFS/dev/shm ]; then
+  install -v -d -m 1777 $LFS$(realpath /dev/shm)
+else
+  mount -vt tmpfs -o nosuid,nodev tmpfs $LFS/dev/shm
+fi`}),s.jsxs(d,{type:"warning",title:"Você vai precisar disso TODA vez que entrar no chroot",children:["Se reiniciar o host e for retomar, refaça os bind-mounts antes de chamar ",s.jsx("code",{children:"chroot"}),". Anote os comandos."]})]})}export{a as default};
