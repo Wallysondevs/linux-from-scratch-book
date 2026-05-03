@@ -1,0 +1,16 @@
+import{j as e}from"./index-ZrM6Gh7j.js";import{P as r}from"./PageContainer-jOSfeH0u.js";import{C as s}from"./CodeBlock-cFXLaLiU.js";import{A as i}from"./AlertBox-D3Y0IUPD.js";function d(){return e.jsxs(r,{title:"Binutils — Pass 1",subtitle:"O assembler e linker para o alvo. É o primeiro pacote da toolchain — e o que define seu SBU.",difficulty:"avancado",timeToRead:"6 min",children:[e.jsx("h2",{children:"O que tem no Binutils?"}),e.jsxs("ul",{children:[e.jsxs("li",{children:[e.jsx("code",{children:"as"})," — assembler."]}),e.jsxs("li",{children:[e.jsx("code",{children:"ld"})," — linker."]}),e.jsxs("li",{children:[e.jsx("code",{children:"objdump"}),", ",e.jsx("code",{children:"nm"}),", ",e.jsx("code",{children:"strip"}),", ",e.jsx("code",{children:"ar"}),", etc."]})]}),e.jsx("h2",{children:"Build em diretório separado"}),e.jsxs("p",{children:["Binutils ",e.jsx("strong",{children:"exige"})," ser construído em diretório separado dos fontes. Sempre crie ",e.jsx("code",{children:"build/"}),":"]}),e.jsx(s,{language:"bash",code:`cd $LFS/sources
+tar -xf binutils-2.45.tar.xz
+cd binutils-2.45
+mkdir -v build
+cd build`}),e.jsx("h2",{children:"Configurando"}),e.jsx(s,{language:"bash",code:`../configure --prefix=$LFS/tools \\
+             --with-sysroot=$LFS \\
+             --target=$LFS_TGT   \\
+             --disable-nls       \\
+             --enable-gprofng=no \\
+             --disable-werror    \\
+             --enable-new-dtags  \\
+             --enable-default-hash-style=gnu`}),e.jsx("h3",{children:"O que cada flag faz?"}),e.jsxs("ul",{children:[e.jsxs("li",{children:[e.jsx("code",{children:"--prefix=$LFS/tools"})," — instala dentro de ",e.jsx("code",{children:"/mnt/lfs/tools"}),", isolado."]}),e.jsxs("li",{children:[e.jsx("code",{children:"--with-sysroot=$LFS"})," — define ",e.jsx("code",{children:"/mnt/lfs"}),' como "raiz" lógica para o linker (ele só vai procurar libs ali).']}),e.jsxs("li",{children:[e.jsx("code",{children:"--target=$LFS_TGT"})," — alvo de cross. Aqui surge ",e.jsx("code",{children:"x86_64-lfs-linux-gnu"}),"."]}),e.jsxs("li",{children:[e.jsx("code",{children:"--disable-nls"})," — sem internacionalização (não precisamos por enquanto)."]}),e.jsxs("li",{children:[e.jsx("code",{children:"--disable-werror"})," — não trata warnings como erro."]}),e.jsxs("li",{children:[e.jsx("code",{children:"--enable-default-hash-style=gnu"})," — bins menores e mais rápidos no link."]})]}),e.jsx("h2",{children:"Compilando"}),e.jsx(s,{language:"bash",code:`make
+# isto leva 1 SBU. Cronometre:
+# time make
+# anote esse tempo — ele será sua referência.`}),e.jsx("h2",{children:"Instalando"}),e.jsx(s,{language:"bash",code:"make install"}),e.jsx("h2",{children:"Limpando"}),e.jsx(s,{language:"bash",code:`cd $LFS/sources
+rm -rf binutils-2.45`}),e.jsx(i,{type:"success",title:"Concluído!",children:"Sua toolchain agora tem assembler e linker para o alvo. Próximo passo: construir o GCC Pass 1 que vai usar esse linker."}),e.jsxs(i,{type:"warning",title:"Erro 'cannot create regular file'?",children:["Provavelmente ",e.jsx("code",{children:"$LFS/tools"})," não tem permissão de escrita para o usuário ",e.jsx("code",{children:"lfs"}),". Saia, vire root, faça"," ",e.jsx("code",{children:"chown -v lfs $LFS/tools"})," e volte."]})]})}export{d as default};
