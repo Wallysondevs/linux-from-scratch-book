@@ -1,0 +1,14 @@
+import{j as s}from"./index-CGptwfLb.js";import{P as i}from"./PageContainer-DhWxB77g.js";import{C as o}from"./CodeBlock-DiEVa7fR.js";import{A as e}from"./AlertBox-DblzR--W.js";function a(){return s.jsxs(i,{title:"Criando o Usuário lfs",subtitle:"Construir a toolchain temporária como root é arriscado. Vamos criar um usuário dedicado e não-privilegiado.",difficulty:"iniciante",timeToRead:"4 min",children:[s.jsx(e,{type:"info",title:"Pré-requisitos",children:'Ter sistema Linux funcional como host e ler "O que é LFS".'}),s.jsx("h2",{children:"Glossário rápido"}),s.jsxs("ul",{children:[s.jsxs("li",{children:[s.jsx("strong",{children:"useradd lfs"})," "," — "," ","usuário não-root."]}),s.jsxs("li",{children:[s.jsx("strong",{children:"$LFS owner"})," "," — "," ","via chown."]}),s.jsxs("li",{children:[s.jsx("strong",{children:"Build seguro"})," "," — "," ","sem root."]})]}),s.jsx("h2",{children:"Criando o usuário"}),s.jsx(o,{language:"bash",code:`sudo groupadd lfs
+sudo useradd -s /bin/bash -g lfs -m -k /dev/null lfs
+sudo passwd lfs   # define uma senha`}),s.jsx("p",{children:"Explicação dos flags:"}),s.jsxs("ul",{children:[s.jsxs("li",{children:[s.jsx("code",{children:"-s /bin/bash"})," — shell padrão."]}),s.jsxs("li",{children:[s.jsx("code",{children:"-g lfs"})," — grupo primário ",s.jsx("code",{children:"lfs"}),"."]}),s.jsxs("li",{children:[s.jsx("code",{children:"-m"})," — cria ",s.jsx("code",{children:"/home/lfs"}),"."]}),s.jsxs("li",{children:[s.jsx("code",{children:"-k /dev/null"})," — não copia arquivos de skel (nada de ",s.jsx("code",{children:"~/.bashrc"})," herdado do host)."]})]}),s.jsxs("h2",{children:["Dando posse de ",s.jsx("code",{children:"$LFS"})," ao usuário"]}),s.jsx(o,{language:"bash",code:`sudo chown -v lfs $LFS/sources
+sudo chown -v lfs $LFS
+
+# se você criou /tools antes (alguns capítulos pedem):
+# sudo mkdir -pv $LFS/tools
+# sudo chown -v lfs $LFS/tools`}),s.jsxs("h2",{children:["Logando como usuário ",s.jsx("code",{children:"lfs"})]}),s.jsx(o,{language:"bash",code:`su - lfs
+
+# o "-" garante shell de login limpo (sem variáveis herdadas do root)`}),s.jsxs(e,{type:"warning",title:"A partir de agora, fique como lfs",children:["Toda a construção da toolchain temporária é feita como ",s.jsx("code",{children:"lfs"}),". Só volte a ser root quando o livro mandar (chown final, chroot etc.)."]}),s.jsxs("h2",{children:["Verificando que está mesmo como ",s.jsx("code",{children:"lfs"})]}),s.jsx(o,{language:"bash",code:`whoami
+# lfs
+
+id
+# uid=1001(lfs) gid=1001(lfs) groups=1001(lfs)`}),s.jsxs("p",{children:["Vá agora para ",s.jsx("a",{href:"#/ambiente-lfs",children:"Variáveis de Ambiente"})," e configure o ",s.jsx("code",{children:"~/.bash_profile"})," e ",s.jsx("code",{children:"~/.bashrc"})," do usuário ",s.jsx("code",{children:"lfs"}),"."]})]})}export{a as default};
