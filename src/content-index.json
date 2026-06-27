@@ -1,0 +1,784 @@
+[
+ {
+  "id": "prologue",
+  "name": "Prefácio",
+  "pages": [
+   {
+    "slug": "prologue__foreword",
+    "title": "i. Prefácio"
+   },
+   {
+    "slug": "prologue__audience",
+    "title": "ii. Público-alvo"
+   },
+   {
+    "slug": "prologue__architecture",
+    "title": "iii. Arquiteturas Alvo do LFS"
+   },
+   {
+    "slug": "prologue__prerequisites",
+    "title": "iv. Pré-requisitos"
+   },
+   {
+    "slug": "prologue__standards",
+    "title": "v. LFS e Padrões"
+   },
+   {
+    "slug": "prologue__package-choices",
+    "title": "vi. Justificativa para os Pacotes no Livro"
+   },
+   {
+    "slug": "prologue__typography",
+    "title": "vii. Tipografia"
+   },
+   {
+    "slug": "prologue__organization",
+    "title": "viii. Estrutura"
+   },
+   {
+    "slug": "prologue__errata",
+    "title": "ix. Erratas e Avisos de Segurança"
+   },
+   {
+    "slug": "prologue__preface",
+    "title": "Prefácio"
+   }
+  ]
+ },
+ {
+  "id": "chapter01",
+  "name": "1. Introdução",
+  "pages": [
+   {
+    "slug": "chapter01__how",
+    "title": "1.1. Como Construir um Sistema LFS"
+   },
+   {
+    "slug": "chapter01__whatsnew",
+    "title": "1.2. O que há de novo desde a última versão"
+   },
+   {
+    "slug": "chapter01__changelog",
+    "title": "1.3. Histórico de Alterações"
+   },
+   {
+    "slug": "chapter01__resources",
+    "title": "1.4. Recursos"
+   },
+   {
+    "slug": "chapter01__askforhelp",
+    "title": "1.5. Ajuda"
+   }
+  ]
+ },
+ {
+  "id": "chapter02",
+  "name": "2. Preparando o Host",
+  "pages": [
+   {
+    "slug": "chapter02__introduction",
+    "title": "2.1. Introdução"
+   },
+   {
+    "slug": "chapter02__hostreqs",
+    "title": "2.2. Requisitos do Sistema Host"
+   },
+   {
+    "slug": "chapter02__stages",
+    "title": "2.3. Construindo o LFS em Estágios"
+   },
+   {
+    "slug": "chapter02__creatingpartition",
+    "title": "2.4. Criando uma Nova Partição"
+   },
+   {
+    "slug": "chapter02__creatingfilesystem",
+    "title": "2.5. Criando um Sistema de Arquivos na Partição"
+   },
+   {
+    "slug": "chapter02__aboutlfs",
+    "title": "2.6. Definindo a Variável $LFS e o Umask"
+   },
+   {
+    "slug": "chapter02__mounting",
+    "title": "2.7. Montando a Nova Partição"
+   }
+  ]
+ },
+ {
+  "id": "chapter03",
+  "name": "3. Pacotes e Patches",
+  "pages": [
+   {
+    "slug": "chapter03__introduction",
+    "title": "3.1. Introdução"
+   },
+   {
+    "slug": "chapter03__packages",
+    "title": "3.2. Todos os Pacotes"
+   },
+   {
+    "slug": "chapter03__patches",
+    "title": "3.3. Patches Necessários"
+   }
+  ]
+ },
+ {
+  "id": "chapter04",
+  "name": "4. Preparativos Finais",
+  "pages": [
+   {
+    "slug": "chapter04__introduction",
+    "title": "4.1. Introdução"
+   },
+   {
+    "slug": "chapter04__creatingminlayout",
+    "title": "4.2. Criando um Layout de Diretório Limitado no Sistema de Arquivos LFS"
+   },
+   {
+    "slug": "chapter04__addinguser",
+    "title": "4.3. Adicionando o Usuário LFS"
+   },
+   {
+    "slug": "chapter04__settingenvironment",
+    "title": "4.4. Configurando o Ambiente"
+   },
+   {
+    "slug": "chapter04__aboutsbus",
+    "title": "4.5. Sobre SBUs"
+   },
+   {
+    "slug": "chapter04__abouttestsuites",
+    "title": "4.6. Sobre as Suítes de Teste"
+   }
+  ]
+ },
+ {
+  "id": "chapter05",
+  "name": "5. Toolchain Temporária (Parte 1)",
+  "pages": [
+   {
+    "slug": "chapter05__introduction",
+    "title": "5.1. Introdução"
+   },
+   {
+    "slug": "chapter05__binutils-pass1",
+    "title": "5.2. Binutils-2.45 - Etapa 1"
+   },
+   {
+    "slug": "chapter05__gcc-pass1",
+    "title": "5.3. GCC-15.2.0 - Etapa 1"
+   },
+   {
+    "slug": "chapter05__linux-headers",
+    "title": "5.4. Cabeçalhos da API Linux-6.16.1"
+   },
+   {
+    "slug": "chapter05__glibc",
+    "title": "5.5. Glibc-2.42"
+   },
+   {
+    "slug": "chapter05__gcc-libstdc++",
+    "title": "5.6. Libstdc++ do GCC-15.2.0"
+   }
+  ]
+ },
+ {
+  "id": "chapter06",
+  "name": "6. Ferramentas Temporárias (Parte 2)",
+  "pages": [
+   {
+    "slug": "chapter06__introduction",
+    "title": "6.1. Introdução"
+   },
+   {
+    "slug": "chapter06__m4",
+    "title": "6.2. M4-1.4.20"
+   },
+   {
+    "slug": "chapter06__ncurses",
+    "title": "6.3. Ncurses-6.5-20250809"
+   },
+   {
+    "slug": "chapter06__bash",
+    "title": "6.4. Bash-5.3"
+   },
+   {
+    "slug": "chapter06__coreutils",
+    "title": "6.5. Coreutils-9.7"
+   },
+   {
+    "slug": "chapter06__diffutils",
+    "title": "6.6. Diffutils-3.12"
+   },
+   {
+    "slug": "chapter06__file",
+    "title": "6.7. File-5.46"
+   },
+   {
+    "slug": "chapter06__findutils",
+    "title": "6.8. Findutils-4.10.0"
+   },
+   {
+    "slug": "chapter06__gawk",
+    "title": "6.9. Gawk-5.3.2"
+   },
+   {
+    "slug": "chapter06__grep",
+    "title": "6.10. Grep-3.12"
+   },
+   {
+    "slug": "chapter06__gzip",
+    "title": "6.11. Gzip-1.14"
+   },
+   {
+    "slug": "chapter06__make",
+    "title": "6.12. Make-4.4.1"
+   },
+   {
+    "slug": "chapter06__patch",
+    "title": "6.13. Patch-2.8"
+   },
+   {
+    "slug": "chapter06__sed",
+    "title": "6.14. Sed-4.9"
+   },
+   {
+    "slug": "chapter06__tar",
+    "title": "6.15. Tar-1.35"
+   },
+   {
+    "slug": "chapter06__xz",
+    "title": "6.16. Xz-5.8.1"
+   },
+   {
+    "slug": "chapter06__binutils-pass2",
+    "title": "6.17. Binutils-2.45 - Etapa 2"
+   },
+   {
+    "slug": "chapter06__gcc-pass2",
+    "title": "6.18. GCC-15.2.0 - Etapa 2"
+   }
+  ]
+ },
+ {
+  "id": "chapter07",
+  "name": "7. Entrando no Chroot",
+  "pages": [
+   {
+    "slug": "chapter07__introduction",
+    "title": "7.1. Introdução"
+   },
+   {
+    "slug": "chapter07__changingowner",
+    "title": "7.2. Alterando a Propriedade"
+   },
+   {
+    "slug": "chapter07__kernfs",
+    "title": "7.3. Preparando Sistemas de Arquivos Virtuais do Kernel"
+   },
+   {
+    "slug": "chapter07__chroot",
+    "title": "7.4. Entrando no Ambiente Chroot"
+   },
+   {
+    "slug": "chapter07__creatingdirs",
+    "title": "7.5. Criando Diretórios"
+   },
+   {
+    "slug": "chapter07__createfiles",
+    "title": "7.6. Criando Arquivos Essenciais e Symlinks"
+   },
+   {
+    "slug": "chapter07__gettext",
+    "title": "7.7. Gettext-0.26"
+   },
+   {
+    "slug": "chapter07__bison",
+    "title": "7.8. Bison-3.8.2"
+   },
+   {
+    "slug": "chapter07__perl",
+    "title": "7.9. Perl-5.42.0"
+   },
+   {
+    "slug": "chapter07__Python",
+    "title": "7.10. Python-3.13.7"
+   },
+   {
+    "slug": "chapter07__texinfo",
+    "title": "7.11. Texinfo-7.2"
+   },
+   {
+    "slug": "chapter07__util-linux",
+    "title": "7.12. Util-linux-2.41.1"
+   },
+   {
+    "slug": "chapter07__cleanup",
+    "title": "7.13. Limpando e Salvando o Sistema Temporário"
+   }
+  ]
+ },
+ {
+  "id": "chapter08",
+  "name": "8. Construindo o Sistema LFS",
+  "pages": [
+   {
+    "slug": "chapter08__introduction",
+    "title": "8.1. Introdução"
+   },
+   {
+    "slug": "chapter08__pkgmgt",
+    "title": "8.2. Gerenciamento de Pacotes"
+   },
+   {
+    "slug": "chapter08__man-pages",
+    "title": "8.3. Man-pages-6.15"
+   },
+   {
+    "slug": "chapter08__iana-etc",
+    "title": "8.4. Iana-Etc-20250807"
+   },
+   {
+    "slug": "chapter08__glibc",
+    "title": "8.5. Glibc-2.42"
+   },
+   {
+    "slug": "chapter08__zlib",
+    "title": "8.6. Zlib-1.3.1"
+   },
+   {
+    "slug": "chapter08__bzip2",
+    "title": "8.7. Bzip2-1.0.8"
+   },
+   {
+    "slug": "chapter08__xz",
+    "title": "8.8. Xz-5.8.1"
+   },
+   {
+    "slug": "chapter08__lz4",
+    "title": "8.9. Lz4-1.10.0"
+   },
+   {
+    "slug": "chapter08__zstd",
+    "title": "8.10. Zstd-1.5.7"
+   },
+   {
+    "slug": "chapter08__file",
+    "title": "8.11. File-5.46"
+   },
+   {
+    "slug": "chapter08__readline",
+    "title": "8.12. Readline-8.3"
+   },
+   {
+    "slug": "chapter08__m4",
+    "title": "8.13. M4-1.4.20"
+   },
+   {
+    "slug": "chapter08__bc",
+    "title": "8.14. Bc-7.0.3"
+   },
+   {
+    "slug": "chapter08__flex",
+    "title": "8.15. Flex-2.6.4"
+   },
+   {
+    "slug": "chapter08__tcl",
+    "title": "8.16. Tcl-8.6.16"
+   },
+   {
+    "slug": "chapter08__expect",
+    "title": "8.17. Expect-5.45.4"
+   },
+   {
+    "slug": "chapter08__dejagnu",
+    "title": "8.18. DejaGNU-1.6.3"
+   },
+   {
+    "slug": "chapter08__pkgconf",
+    "title": "8.19. Pkgconf-2.5.1"
+   },
+   {
+    "slug": "chapter08__binutils",
+    "title": "8.20. Binutils-2.45"
+   },
+   {
+    "slug": "chapter08__gmp",
+    "title": "8.21. GMP-6.3.0"
+   },
+   {
+    "slug": "chapter08__mpfr",
+    "title": "8.22. MPFR-4.2.2"
+   },
+   {
+    "slug": "chapter08__mpc",
+    "title": "8.23. MPC-1.3.1"
+   },
+   {
+    "slug": "chapter08__attr",
+    "title": "8.24. Attr-2.5.2"
+   },
+   {
+    "slug": "chapter08__acl",
+    "title": "8.25. Acl-2.3.2"
+   },
+   {
+    "slug": "chapter08__libcap",
+    "title": "8.26. Libcap-2.76"
+   },
+   {
+    "slug": "chapter08__libxcrypt",
+    "title": "8.27. Libxcrypt-4.4.38"
+   },
+   {
+    "slug": "chapter08__shadow",
+    "title": "8.28. Shadow-4.18.0"
+   },
+   {
+    "slug": "chapter08__gcc",
+    "title": "8.29. GCC-15.2.0"
+   },
+   {
+    "slug": "chapter08__ncurses",
+    "title": "8.30. Ncurses-6.5-20250809"
+   },
+   {
+    "slug": "chapter08__sed",
+    "title": "8.31. Sed-4.9"
+   },
+   {
+    "slug": "chapter08__psmisc",
+    "title": "8.32. Psmisc-23.7"
+   },
+   {
+    "slug": "chapter08__gettext",
+    "title": "8.33. Gettext-0.26"
+   },
+   {
+    "slug": "chapter08__bison",
+    "title": "8.34. Bison-3.8.2"
+   },
+   {
+    "slug": "chapter08__grep",
+    "title": "8.35. Grep-3.12"
+   },
+   {
+    "slug": "chapter08__bash",
+    "title": "8.36. Bash-5.3"
+   },
+   {
+    "slug": "chapter08__libtool",
+    "title": "8.37. Libtool-2.5.4"
+   },
+   {
+    "slug": "chapter08__gdbm",
+    "title": "8.38. GDBM-1.26"
+   },
+   {
+    "slug": "chapter08__gperf",
+    "title": "8.39. Gperf-3.3"
+   },
+   {
+    "slug": "chapter08__expat",
+    "title": "8.40. Expat-2.7.1"
+   },
+   {
+    "slug": "chapter08__inetutils",
+    "title": "8.41. Inetutils-2.6"
+   },
+   {
+    "slug": "chapter08__less",
+    "title": "8.42. Less-679"
+   },
+   {
+    "slug": "chapter08__perl",
+    "title": "8.43. Perl-5.42.0"
+   },
+   {
+    "slug": "chapter08__xml-parser",
+    "title": "8.44. XML::Parser-2.47"
+   },
+   {
+    "slug": "chapter08__intltool",
+    "title": "8.45. Intltool-0.51.0"
+   },
+   {
+    "slug": "chapter08__autoconf",
+    "title": "8.46. Autoconf-2.72"
+   },
+   {
+    "slug": "chapter08__automake",
+    "title": "8.47. Automake-1.18.1"
+   },
+   {
+    "slug": "chapter08__openssl",
+    "title": "8.48. OpenSSL-3.5.2"
+   },
+   {
+    "slug": "chapter08__libelf",
+    "title": "8.49. Libelf from Elfutils-0.193"
+   },
+   {
+    "slug": "chapter08__libffi",
+    "title": "8.50. Libffi-3.5.2"
+   },
+   {
+    "slug": "chapter08__Python",
+    "title": "8.51. Python-3.13.7"
+   },
+   {
+    "slug": "chapter08__flit-core",
+    "title": "8.52. Flit-Core-3.12.0"
+   },
+   {
+    "slug": "chapter08__packaging",
+    "title": "8.53. Packaging-25.0"
+   },
+   {
+    "slug": "chapter08__wheel",
+    "title": "8.54. Wheel-0.46.1"
+   },
+   {
+    "slug": "chapter08__setuptools",
+    "title": "8.55. Setuptools-80.9.0"
+   },
+   {
+    "slug": "chapter08__ninja",
+    "title": "8.56. Ninja-1.13.1"
+   },
+   {
+    "slug": "chapter08__meson",
+    "title": "8.57. Meson-1.8.3"
+   },
+   {
+    "slug": "chapter08__kmod",
+    "title": "8.58. Kmod-34.2"
+   },
+   {
+    "slug": "chapter08__coreutils",
+    "title": "8.59. Coreutils-9.7"
+   },
+   {
+    "slug": "chapter08__diffutils",
+    "title": "8.60. Diffutils-3.12"
+   },
+   {
+    "slug": "chapter08__gawk",
+    "title": "8.61. Gawk-5.3.2"
+   },
+   {
+    "slug": "chapter08__findutils",
+    "title": "8.62. Findutils-4.10.0"
+   },
+   {
+    "slug": "chapter08__groff",
+    "title": "8.63. Groff-1.23.0"
+   },
+   {
+    "slug": "chapter08__grub",
+    "title": "8.64. GRUB-2.12"
+   },
+   {
+    "slug": "chapter08__gzip",
+    "title": "8.65. Gzip-1.14"
+   },
+   {
+    "slug": "chapter08__iproute2",
+    "title": "8.66. IPRoute2-6.16.0"
+   },
+   {
+    "slug": "chapter08__kbd",
+    "title": "8.67. Kbd-2.8.0"
+   },
+   {
+    "slug": "chapter08__make",
+    "title": "8.69. Make-4.4.1"
+   },
+   {
+    "slug": "chapter08__patch",
+    "title": "8.70. Patch-2.8"
+   },
+   {
+    "slug": "chapter08__tar",
+    "title": "8.71. Tar-1.35"
+   },
+   {
+    "slug": "chapter08__texinfo",
+    "title": "8.72. Texinfo-7.2"
+   },
+   {
+    "slug": "chapter08__vim",
+    "title": "8.73. Vim-9.1.1629"
+   },
+   {
+    "slug": "chapter08__markupsafe",
+    "title": "8.74. MarkupSafe-3.0.2"
+   },
+   {
+    "slug": "chapter08__jinja2",
+    "title": "8.75. Jinja2-3.1.6"
+   },
+   {
+    "slug": "chapter08__systemd",
+    "title": "8.76. Systemd-257.8"
+   },
+   {
+    "slug": "chapter08__dbus",
+    "title": "8.77. D-Bus-1.16.2"
+   },
+   {
+    "slug": "chapter08__man-db",
+    "title": "8.78. Man-DB-2.13.1"
+   },
+   {
+    "slug": "chapter08__procps-ng",
+    "title": "8.79. Procps-ng-4.0.5"
+   },
+   {
+    "slug": "chapter08__util-linux",
+    "title": "8.80. Util-linux-2.41.1"
+   },
+   {
+    "slug": "chapter08__e2fsprogs",
+    "title": "8.81. E2fsprogs-1.47.3"
+   },
+   {
+    "slug": "chapter08__aboutdebug",
+    "title": "8.82. Sobre Símbolos de Depuração"
+   },
+   {
+    "slug": "chapter08__stripping",
+    "title": "8.83. Remoção de Símbolos"
+   },
+   {
+    "slug": "chapter08__cleanup",
+    "title": "8.84. Limpeza"
+   }
+  ]
+ },
+ {
+  "id": "chapter09",
+  "name": "9. Configuração do Sistema",
+  "pages": [
+   {
+    "slug": "chapter09__introduction",
+    "title": "9.1. Introdução"
+   },
+   {
+    "slug": "chapter09__network",
+    "title": "9.2. Configuração Geral de Rede"
+   },
+   {
+    "slug": "chapter09__udev",
+    "title": "9.3. Visão Geral do Manuseio de Dispositivos e Módulos"
+   },
+   {
+    "slug": "chapter09__symlinks",
+    "title": "9.4. Gerenciando Dispositivos"
+   },
+   {
+    "slug": "chapter09__clock",
+    "title": "9.5. Configurando o Relógio do Sistema"
+   },
+   {
+    "slug": "chapter09__console",
+    "title": "9.6. Configurando o Console Linux"
+   },
+   {
+    "slug": "chapter09__locale",
+    "title": "9.7. Configurando o Locale do Sistema"
+   },
+   {
+    "slug": "chapter09__inputrc",
+    "title": "9.8. Criando o arquivo /etc/inputrc"
+   },
+   {
+    "slug": "chapter09__etcshells",
+    "title": "9.9. Criando o Arquivo /etc/shells"
+   },
+   {
+    "slug": "chapter09__systemd-custom",
+    "title": "9.10. Uso e Configuração do Systemd"
+   }
+  ]
+ },
+ {
+  "id": "chapter10",
+  "name": "10. Tornando o LFS Inicializável",
+  "pages": [
+   {
+    "slug": "chapter10__introduction",
+    "title": "10.1. Introdução"
+   },
+   {
+    "slug": "chapter10__fstab",
+    "title": "10.2. Criando o arquivo /etc/fstab"
+   },
+   {
+    "slug": "chapter10__kernel",
+    "title": "10.3. Linux-6.16.1"
+   },
+   {
+    "slug": "chapter10__grub",
+    "title": "10.4. Usando o GRUB para Configurar o Processo de Inicialização"
+   }
+  ]
+ },
+ {
+  "id": "chapter11",
+  "name": "11. O Fim",
+  "pages": [
+   {
+    "slug": "chapter11__theend",
+    "title": "11.1. O Fim"
+   },
+   {
+    "slug": "chapter11__getcounted",
+    "title": "11.2. Seja Contado"
+   },
+   {
+    "slug": "chapter11__reboot",
+    "title": "11.3. Reiniciando o Sistema"
+   },
+   {
+    "slug": "chapter11__whatnow",
+    "title": "11.4. Recursos Adicionais"
+   },
+   {
+    "slug": "chapter11__afterlfs",
+    "title": "11.5. Primeiros Passos Após o LFS"
+   }
+  ]
+ },
+ {
+  "id": "appendices",
+  "name": "Apêndices",
+  "pages": [
+   {
+    "slug": "appendices__acronymlist",
+    "title": "A. Acrônimos e Termos"
+   },
+   {
+    "slug": "appendices__acknowledgments",
+    "title": "B. Agradecimentos"
+   },
+   {
+    "slug": "appendices__dependencies",
+    "title": "C. Dependências"
+   },
+   {
+    "slug": "appendices__licenses",
+    "title": "D. Licenças LFS"
+   },
+   {
+    "slug": "appendices__creat-comm",
+    "title": "D.1. Licença Creative Commons"
+   },
+   {
+    "slug": "appendices__mit",
+    "title": "D.2. A Licença MIT"
+   }
+  ]
+ }
+]
