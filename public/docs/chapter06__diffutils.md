@@ -15,7 +15,7 @@ Prepare o Diffutils para compilação:
 
 O significado das opções do configure:
 
-Esta opção especifica o resultado de uma verificação para o strcasecmp. A verificação requer a execução de um programa C compilado, e isso é impossível durante a compilação cruzada porque, em geral, um programa compilado cruzadamente não pode ser executado na distro host. Normalmente, para tal verificação, o script configure usaria um valor de fallback para compilação cruzada, mas o valor de fallback para esta verificação está ausente e o script configure não teria valor para usar e falharia. O upstream já corrigiu o problema, mas para aplicar a correção precisaríamos executar o autoconf que a distro host pode não ter. Então, nós apenas especificamos o resultado da verificação (y, pois sabemos que a função strcasecmp no Glibc-2.42 funciona bem) em vez disso, então o configure simplesmente usará o valor especificado e pulará a verificação.
+Esta opção especifica o resultado de uma verificação para o strcasecmp. A verificação requer a execução de um programa C compilado, e isso é impossível durante a cross-compilação porque, em geral, um programa cross-compilado não pode ser executado na distro host. Normalmente, para tal verificação, o script configure usaria um valor de fallback para cross-compilação, mas o valor de fallback para esta verificação está ausente e o script configure não teria valor para usar e falharia. O upstream já corrigiu o problema, mas para aplicar a correção precisaríamos executar o autoconf que a distro host pode não ter. Então, nós apenas especificamos o resultado da verificação (y, pois sabemos que a função strcasecmp no Glibc-2.42 funciona bem) em vez disso, então o configure simplesmente usará o valor especificado e pulará a verificação.
 
 Compile o pacote:
 
@@ -29,4 +29,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.60.2, “Conteúdo do Diffutils.”
+Detalhes sobre este pacote estão localizados em [Seção 8.60.2, “Conteúdo do Diffutils.”](#/page/chapter08__diffutils)

@@ -30,4 +30,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.61.2, “Conteúdo do Gawk.”
+Detalhes sobre este pacote estão localizados em [Seção 8.61.2, “Conteúdo do Gawk.”](#/page/chapter08__gawk)

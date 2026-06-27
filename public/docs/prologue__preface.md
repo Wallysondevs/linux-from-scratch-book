@@ -1,21 +1,21 @@
-# Prefácio
+# Preface
 
 ### Sumário
 
-- Prefácio
+- [Prefácio](#/page/prologue__foreword)
 
-- Público-alvo
+- [Público-alvo](#/page/prologue__audience)
 
-- Arquiteturas Alvo do LFS
+- [Arquiteturas-alvo do LFS](#/page/prologue__architecture)
 
-- Pré-requisitos
+- [Pré-requisitos](#/page/prologue__prerequisites)
 
-- LFS e Padrões
+- [LFS e Padrões](#/page/prologue__standards)
 
-- Justificativa para os Pacotes no Livro
+- [Justificativa para os Pacotes no Livro](#/page/prologue__package-choices)
 
-- Tipografia
+- [Tipografia](#/page/prologue__typography)
 
-- Estrutura
+- [Estrutura](#/page/prologue__organization)
 
-- Erros e Avisos de Segurança
+- [Errata e Avisos de Segurança](#/page/prologue__errata)

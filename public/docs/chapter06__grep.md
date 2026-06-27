@@ -24,4 +24,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.35.2, “Conteúdo do Grep.”
+Detalhes sobre este pacote estão localizados em [Seção 8.35.2, “Conteúdo do Grep.”](#/page/chapter08__grep)

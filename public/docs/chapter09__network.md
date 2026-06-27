@@ -1,4 +1,4 @@
-# 9.2. Configuração Geral de Rede
+# 9.2. General Network Configuration
 
 Esta seção se aplica apenas se uma placa de rede for configurada.
 
@@ -8,21 +8,21 @@ A partir da versão 209, o systemd inclui um daemon de configuração de rede ch
 
 ### Nota
 
-Se você não for usar o systemd-networkd para configuração de rede (por exemplo, quando o sistema não está conectado à rede, ou você deseja usar outro utilitário como o NetworkManager para configuração de rede), desabilite um serviço para evitar uma mensagem de erro durante a inicialização:
+Se você não for usar o systemd-networkd para configuração de rede (por exemplo, quando o sistema não estiver conectado à rede, ou se você quiser usar outro utilitário como o NetworkManager para configuração de rede), desabilite um serviço para evitar uma mensagem de erro durante a inicialização:
 
 ```bash
 systemctl disable systemd-networkd-wait-online
 ```
 
-Arquivos de configuração para systemd-networkd (e systemd-resolved) podem ser colocados em /usr/lib/systemd/network ou /etc/systemd/network. Arquivos em /etc/systemd/network têm uma prioridade maior do que os em /usr/lib/systemd/network. Existem três tipos de arquivos de configuração: arquivos .link, .netdev e .network. Para descrições detalhadas e exemplos de conteúdo desses arquivos de configuração, consulte as páginas de manual systemd.link(5), systemd.netdev(5) e systemd.network(5).
+Os arquivos de configuração para systemd-networkd (e systemd-resolved) podem ser colocados em /usr/lib/systemd/network ou /etc/systemd/network. Os arquivos em /etc/systemd/network têm uma prioridade maior do que os em /usr/lib/systemd/network. Existem três tipos de arquivos de configuração: arquivos .link, .netdev e .network. Para descrições detalhadas e exemplos de conteúdo desses arquivos de configuração, consulte as páginas de manual [systemd.link(5)](https://man.archlinux.org/man/systemd.link.5), [systemd.netdev(5)](https://man.archlinux.org/man/systemd.netdev.5) e [systemd.network(5)](https://man.archlinux.org/man/systemd.network.5).
 
 ### 9.2.1.1. Nomenclatura de Dispositivos de Rede
 
-O Udev normalmente atribui nomes de interface de placa de rede com base em características físicas do sistema, como enp2s1. Se você não tem certeza de qual é o nome da sua interface, você sempre pode executar ip link depois de inicializar seu sistema.
+O Udev normalmente atribui nomes de interface de placa de rede com base nas características físicas do sistema, como enp2s1. Se você não tem certeza de qual é o nome da sua interface, você sempre pode executar ip link depois de inicializar seu sistema.
 
 ### Nota
 
-Os nomes das interfaces dependem da implementação e configuração do daemon udev em execução no sistema. O daemon udev para LFS (systemd-udevd, instalado na Seção 8.76, “Systemd-257.8”) não será executado a menos que o sistema LFS seja inicializado. Portanto, não é confiável determinar os nomes das interfaces sendo usadas no sistema LFS executando esses comandos na distro host, mesmo que você esteja no ambiente chroot.
+Os nomes das interfaces dependem da implementação e configuração do daemon udev em execução no sistema. O daemon udev para LFS (systemd-udevd, instalado na [Seção 8.76, “Systemd-257.8”](#/page/chapter08__systemd)) não será executado a menos que o sistema LFS seja inicializado. Portanto, não é confiável determinar os nomes das interfaces sendo usados no sistema LFS executando esses comandos na distro host, mesmo que você esteja no ambiente chroot.
 
 Para a maioria dos sistemas, há apenas uma interface de rede para cada tipo de conexão. Por exemplo, o nome clássico da interface para uma conexão com fio é eth0. Uma conexão sem fio geralmente terá o nome wifi0 ou wlan0.
 
@@ -34,7 +34,7 @@ Se você preferir usar os nomes de interface de rede clássicos ou personalizado
 ln -s /dev/null /etc/systemd/network/99-default.link
 ```
 
-- Crie um esquema de nomenclatura manual, por exemplo, nomeando as interfaces como internet0, dmz0 ou lan0. Para fazer isso, crie arquivos .link em /etc/systemd/network/ que selecionem um nome explícito ou um esquema de nomenclatura melhor para suas interfaces de rede. Por exemplo: cat > /etc/systemd/network/10-ether0.link << "EOF" [Match] # Altere o endereço MAC conforme apropriado para o seu dispositivo de rede MACAddress=12:34:45:78:90:AB [Link] Name=ether0 EOF Consulte systemd.link(5) para mais informações.
+- Crie um esquema de nomenclatura manual, por exemplo, nomeando as interfaces como internet0, dmz0 ou lan0. Para fazer isso, crie arquivos .link em /etc/systemd/network/ que selecionem um nome explícito ou um esquema de nomenclatura melhor para suas interfaces de rede. Por exemplo: cat > /etc/systemd/network/10-ether0.link << "EOF" [Match] # Altere o endereço MAC conforme apropriado para seu dispositivo de rede MACAddress=12:34:45:78:90:AB [Link] Name=ether0 EOF Veja [systemd.link(5)](https://man.archlinux.org/man/systemd.link.5) para mais informações.
 
 ```bash
 cat > /etc/systemd/network/10-ether0.link << "EOF"
@@ -51,7 +51,7 @@ EOF
 
 ### 9.2.1.2. Configuração de IP Estático
 
-O comando abaixo cria um arquivo de configuração básico para uma configuração de IP Estático (usando tanto systemd-networkd quanto systemd-resolved):
+O comando abaixo cria um arquivo de configuração básico para uma configuração de IP Estático (usando systemd-networkd e systemd-resolved):
 
 ```bash
 cat > /etc/systemd/network/10-eth-static.network << "EOF"
@@ -123,7 +123,7 @@ nameserver <IP address of your secondary nameserver>
 EOF
 ```
 
-A declaração domain pode ser omitida ou substituída por uma declaração search. Consulte a página de manual para resolv.conf para mais detalhes.
+A declaração domain pode ser omitida ou substituída por uma declaração search. Consulte a página man para resolv.conf para mais detalhes.
 
 Substitua <IP address of the nameserver> pelo endereço IP do servidor DNS mais apropriado para sua configuração. Frequentemente haverá mais de uma entrada (os requisitos exigem servidores secundários para capacidade de fallback). Se você precisar ou quiser apenas um servidor DNS, remova a segunda linha nameserver do arquivo. O endereço IP também pode ser um roteador na rede local. Outra opção é usar o serviço Google Public DNS usando os endereços IP abaixo como nameservers.
 
@@ -133,7 +133,7 @@ Os endereços DNS IPv4 Públicos do Google são 8.8.8.8 e 8.8.4.4 para IPv4, e 2
 
 ## 9.2.3. Configurando o hostname do sistema
 
-Durante o processo de inicialização, o arquivo /etc/hostname é usado para estabelecer o hostname do sistema.
+Durante o processo de boot, o arquivo /etc/hostname é usado para estabelecer o hostname do sistema.
 
 Crie o arquivo /etc/hostname e insira um hostname executando:
 
@@ -151,7 +151,7 @@ Decida sobre um nome de domínio totalmente qualificado (FQDN) e possíveis alia
 IP_address myhost.example.org aliases
 ```
 
-A menos que o computador seja visível para a Internet (ou seja, haja um domínio registrado e um bloco válido de endereços IP atribuídos — a maioria dos usuários não possui isso), certifique-se de que o endereço IP esteja na faixa de endereços IP de rede privada. As faixas válidas são:
+A menos que o computador seja visível para a Internet (ou seja, haja um domínio registrado e um bloco válido de endereços IP atribuídos — a maioria dos usuários não possui isso), certifique-se de que o endereço IP esteja no intervalo de endereços IP de rede privada. Os intervalos válidos são:
 
 ```
 Private Network Address Range      Normal Prefix
@@ -160,7 +160,7 @@ Private Network Address Range      Normal Prefix
 192.168.y.1 - 192.168.y.254         24
 ```
 
-x pode ser qualquer número na faixa 16-31. y pode ser qualquer número na faixa 0-255.
+x pode ser qualquer número no intervalo 16-31. y pode ser qualquer número no intervalo 0-255.
 
 Um endereço IP privado válido pode ser 192.168.1.1.
 
@@ -185,6 +185,6 @@ EOF
 
 Os valores <192.168.0.2> e <FQDN> precisam ser alterados para usos ou requisitos específicos (se um endereço IP for atribuído por um administrador de rede/sistema e a máquina for conectada a uma rede existente). O(s) nome(s) de alias opcional(is) pode(m) ser omitido(s), e a linha <192.168.0.2> pode ser omitida se você estiver usando uma conexão configurada com DHCP ou Autoconfiguração IPv6, ou usando localhost.localdomain como o FQDN.
 
-O /etc/hostname não contém entradas para localhost, localhost.localdomain, ou o hostname (sem um domínio) porque eles são tratados pelo módulo NSS myhostname, leia a página de manual nss-myhostname(8) para detalhes.
+O /etc/hostname não contém entradas para localhost, localhost.localdomain, ou o hostname (sem um domínio) porque são tratados pelo módulo NSS myhostname, leia a página man [nss-myhostname(8)](https://man.archlinux.org/man/nss-myhostname.8) para detalhes.
 
 A entrada ::1 é a contraparte IPv6 de 127.0.0.1 e representa a interface de loopback IPv6.

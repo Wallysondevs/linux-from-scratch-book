@@ -21,13 +21,13 @@ sh Configure -des                                         \
 
 O significado das opções do Configure:
 
-Esta é uma combinação de três opções: -d usa os padrões para todos os itens; -e garante a conclusão de todas as tarefas; -s silencia a saída não essencial.
+Esta é uma combinação de três opções: -d usa padrões para todos os itens; -e garante a conclusão de todas as tarefas; -s silencia a saída não essencial.
 
-Isso garante que o perl saiba como informar aos packages onde eles devem instalar seus módulos Perl.
+Isso garante que o perl saiba como informar aos pacotes onde eles devem instalar seus módulos Perl.
 
 Construa a libperl necessária por alguns módulos Perl como uma biblioteca compartilhada, em vez de uma biblioteca estática.
 
-Estas configurações definem onde o Perl procura por módulos instalados. Os editores do LFS escolheram colocá-los em uma estrutura de diretórios baseada na versão MAJOR.MINOR do Perl (5.42), o que permite atualizar o Perl para níveis de patch mais recentes (o nível de patch é a última parte separada por ponto na string de versão completa como 5.42.0) sem reinstalar todos os módulos.
+Essas configurações definem onde o Perl procura por módulos instalados. Os editores do LFS optaram por colocá-los em uma estrutura de diretórios baseada na versão MAJOR.MINOR do Perl (5.42), o que permite atualizar o Perl para níveis de patch mais recentes (o nível de patch é a última parte separada por ponto na string de versão completa, como 5.42.0) sem reinstalar todos os módulos.
 
 Compile o pacote:
 
@@ -41,4 +41,4 @@ Instale o pacote:
 make install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.43.2, “Conteúdo do Perl.”
+Detalhes sobre este pacote estão localizados em [Seção 8.43.2, “Contents of Perl.”](#/page/chapter08__perl)

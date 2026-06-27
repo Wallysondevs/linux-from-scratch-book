@@ -1,10 +1,10 @@
 # 5.5. Glibc-2.42
 
-O pacote Glibc contém a biblioteca C principal. Esta biblioteca fornece as rotinas básicas para alocação de memória, busca em diretórios, abertura e fechamento de arquivos, leitura e escrita de arquivos, manipulação de strings, correspondência de padrões, aritmética e assim por diante.
+O pacote Glibc contém a principal biblioteca C. Esta biblioteca fornece as rotinas básicas para alocar memória, pesquisar diretórios, abrir e fechar arquivos, ler e escrever arquivos, manipulação de strings, correspondência de padrões, aritmética e assim por diante.
 
 ## 5.5.1. Instalação do Glibc
 
-Primeiro, crie um link simbólico para conformidade com LSB. Além disso, para x86_64, crie um link simbólico de compatibilidade necessário para o funcionamento adequado do carregador de biblioteca dinâmica:
+Primeiro, crie um link simbólico para conformidade com LSB. Adicionalmente, para x86_64, crie um link simbólico de compatibilidade necessário para o funcionamento adequado do carregador de biblioteca dinâmica:
 
 ```bash
 case $(uname -m) in
@@ -18,22 +18,22 @@ esac
 
 ### Nota
 
-O comando acima está correto. O comando ln possui várias versões sintáticas, portanto, certifique-se de verificar info coreutils ln e ln(1) antes de relatar o que pode parecer um erro.
+O comando acima está correto. O comando ln possui várias versões sintáticas, então certifique-se de verificar info coreutils ln e [ln(1)](https://man.archlinux.org/man/ln.1) antes de relatar o que pode parecer um erro.
 
-Alguns dos programas Glibc usam o diretório /var/db, não compatível com FHS, para armazenar seus dados de tempo de execução. Aplique o seguinte patch para fazer com que esses programas armazenem seus dados de tempo de execução nos locais compatíveis com FHS:
+Alguns dos programas Glibc usam o diretório /var/db, que não está em conformidade com FHS, para armazenar seus dados de tempo de execução. Aplique o seguinte patch para fazer com que tais programas armazenem seus dados de tempo de execução em locais compatíveis com FHS:
 
 ```bash
 patch -Np1 -i ../glibc-2.42-fhs-1.patch
 ```
 
-A documentação do Glibc recomenda fazer o build do Glibc em um diretório build dedicado:
+A documentação do Glibc recomenda construir o Glibc em um diretório build dedicado:
 
 ```bash
 mkdir -v build
 cd       build
 ```
 
-Certifique-se de que os utilitários ldconfig e sln estejam instalados em /usr/sbin:
+Garanta que os utilitários ldconfig e sln estejam instalados em /usr/sbin:
 
 ```bash
 echo "rootsbindir=/usr/sbin" > configparms
@@ -51,7 +51,7 @@ Em seguida, prepare o Glibc para compilação:
       --enable-kernel=5.4
 ```
 
-O significado das opções de configuração:
+O significado das opções do configure:
 
 O efeito combinado dessas chaves é que o sistema de build do Glibc se configura para ser cross-compiled, usando o cross-linker e o cross-compiler em $LFS/tools.
 
@@ -59,7 +59,7 @@ Isso instrui o Glibc a compilar a biblioteca com suporte para kernels Linux 5.4 
 
 Isso garante que a biblioteca seja instalada em /usr/lib em vez do padrão /lib64 em máquinas de 64 bits.
 
-Não faça o build do daemon de cache de serviço de nomes, que não é mais usado.
+Não construa o daemon de cache de serviço de nomes, que não é mais usado.
 
 Durante esta etapa, o seguinte aviso pode aparecer:
 
@@ -75,7 +75,7 @@ O programa msgfmt ausente ou incompatível é geralmente inofensivo. Este progra
 
 ### Nota
 
-Houve relatos de que este package pode falhar ao fazer o build como um “parallel make”. Se isso ocorrer, execute novamente o comando make com a opção -j1.
+Houve relatos de que este package pode falhar ao construir como um “parallel make.” Se isso ocorrer, execute novamente o comando make com a opção -j1.
 
 Compile o package:
 
@@ -87,7 +87,7 @@ Instale o package:
 
 ### Aviso
 
-Se $LFS não estiver configurado corretamente e, apesar das recomendações, você estiver fazendo o build como root, o próximo comando instalará o Glibc recém-built em seu sistema host, o que quase certamente o tornará inutilizável. Portanto, verifique novamente se o ambiente está configurado corretamente e se você não é root, antes de executar o seguinte comando.
+Se LFS não estiver configurado corretamente e, apesar das recomendações, você estiver construindo como root, o próximo comando instalará o Glibc recém-construído em seu sistema host, o que quase certamente o tornará inutilizável. Portanto, verifique novamente se o ambiente está configurado corretamente e se você não é root, antes de executar o seguinte comando.
 
 ```bash
 make DESTDIR=$LFS install
@@ -95,7 +95,7 @@ make DESTDIR=$LFS install
 
 O significado da opção make install:
 
-A variável make DESTDIR é usada por quase todos os packages para definir o local onde o package deve ser instalado. Se não for definida, o padrão é o diretório root (/). Aqui especificamos que o package é instalado em $LFS, que se tornará o diretório root na Seção 7.4, “Entrando no Ambiente Chroot”.
+A variável make DESTDIR é usada por quase todos os packages para definir o local onde o package deve ser instalado. Se não for definida, o padrão é o diretório root (/). Aqui especificamos que o package é instalado em $LFS, que se tornará o diretório root na [Seção 7.4, “Entrando no Ambiente Chroot.”](#/page/chapter07__chroot)
 
 Corrija um path hard coded para o carregador executável no script ldd:
 
@@ -103,22 +103,22 @@ Corrija um path hard coded para o carregador executável no script ldd:
 sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
 ```
 
-Agora que nossa cross toolchain está em vigor, é importante garantir que a compilação e a vinculação funcionarão conforme o esperado. Fazemos isso realizando algumas verificações de sanidade:
+Agora que nossa cross toolchain está no lugar, é importante garantir que a compilação e a vinculação funcionarão como esperado. Fazemos isso realizando algumas verificações de sanidade:
 
 ```bash
 echo 'int main(){}' | $LFS_TGT-gcc -x c - -v -Wl,--verbose &> dummy.log
 readelf -l a.out | grep ': /lib'
 ```
 
-Não deve haver erros, e a saída do último comando será (permitindo diferenças específicas da plataforma no nome do linker dinâmico):
+Não deve haver erros, e a saída do último comando será (permitindo diferenças específicas da plataforma no nome do dynamic linker):
 
 ```
 [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
 ```
 
-Observe que este path não deve conter /mnt/lfs (ou o valor da variável $LFS se você usou um diferente). O path é resolvido quando o programa compilado é executado, e isso só deve acontecer depois que entrarmos no ambiente chroot onde o kernel consideraria $LFS como o diretório root (/).
+Observe que este path não deve conter /mnt/lfs (ou o valor da variável LFS se você usou uma diferente). O path é resolvido quando o programa compilado é executado, e isso só deve acontecer depois que entrarmos no ambiente chroot onde o kernel consideraria $LFS como o diretório root (/).
 
-Agora certifique-se de que estamos configurados para usar os arquivos de início corretos:
+Agora, certifique-se de que estamos configurados para usar os arquivos de início corretos:
 
 ```bash
 grep -E -o "$LFS/lib.*/S?crt[1in].*succeeded" dummy.log
@@ -132,7 +132,7 @@ A saída do último comando deve ser:
 /mnt/lfs/lib/../lib/crtn.o succeeded
 ```
 
-Verifique se o compilador está procurando pelos arquivos de cabeçalho corretos:
+Verifique se o compiler está procurando pelos arquivos header corretos:
 
 ```bash
 grep -B3 "^ $LFS/usr/include" dummy.log
@@ -149,7 +149,7 @@ Este comando deve retornar a seguinte saída:
 
 Novamente, o diretório nomeado após o seu target triplet pode ser diferente do acima, dependendo da arquitetura do seu sistema.
 
-Em seguida, verifique se o novo linker está sendo usado com os paths de busca corretos:
+Em seguida, verifique se o novo linker está sendo usado com os search paths corretos:
 
 ```bash
 grep 'SEARCH.*/usr/lib' dummy.log |sed 's|; |\n|g'
@@ -182,13 +182,13 @@ A saída do último comando deve ser:
 attempt to open /mnt/lfs/usr/lib/libc.so.6 succeeded
 ```
 
-Certifique-se de que o GCC está usando o linker dinâmico correto:
+Certifique-se de que o GCC está usando o dynamic linker correto:
 
 ```bash
 grep found dummy.log
 ```
 
-A saída do último comando deve ser (permitindo diferenças específicas da plataforma no nome do linker dinâmico):
+A saída do último comando deve ser (permitindo diferenças específicas da plataforma no nome do dynamic linker):
 
 ```
 found ld-linux-x86-64.so.2 at /mnt/lfs/usr/lib/ld-linux-x86-64.so.2
@@ -204,6 +204,6 @@ rm -v a.out dummy.log
 
 ### Nota
 
-A construção dos packages no próximo capítulo servirá como uma verificação adicional de que a toolchain foi construída corretamente. Se algum package, especialmente Binutils-pass2 ou GCC-pass2, falhar ao build, é uma indicação de que algo deu errado com as instalações anteriores de Binutils, GCC ou Glibc.
+A construção dos packages no próximo capítulo servirá como uma verificação adicional de que a toolchain foi construída corretamente. Se algum package, especialmente Binutils-pass2 ou GCC-pass2, falhar ao construir, é uma indicação de que algo deu errado com as instalações anteriores de Binutils, GCC ou Glibc.
 
-Detalhes sobre este package estão localizados na Seção 8.5.3, “Conteúdo do Glibc.”
+Detalhes sobre este package estão localizados em [Seção 8.5.3, “Conteúdo do Glibc.”](#/page/chapter08__glibc)

@@ -1,6 +1,6 @@
 # 6.15. Tar-1.35
 
-O pacote Tar oferece a capacidade de criar arquivos tar, bem como realizar vários outros tipos de manipulação de arquivo. O Tar pode ser usado em arquivos criados anteriormente para extrair arquivos, para armazenar arquivos adicionais ou para atualizar ou listar arquivos que já foram armazenados.
+O pacote Tar fornece a capacidade de criar arquivos tar, bem como realizar vários outros tipos de manipulação de arquivo. Tar pode ser usado em arquivos criados anteriormente para extrair arquivos, para armazenar arquivos adicionais, ou para atualizar ou listar arquivos que já foram armazenados.
 
 ## 6.15.1. Instalação do Tar
 
@@ -24,4 +24,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.71.2, “Conteúdo do Tar.”
+Detalhes sobre este pacote estão localizados em [Seção 8.71.2, “Conteúdo do Tar.”](#/page/chapter08__tar)

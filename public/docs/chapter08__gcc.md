@@ -37,23 +37,23 @@ Prepare o GCC para compilação:
              --with-system-zlib
 ```
 
-O GCC suporta sete linguagens de computador diferentes, mas os pré-requisitos para a maioria delas ainda não foram instalados. Consulte a página do GCC no Livro BLFS para obter instruções sobre como compilar todas as linguagens suportadas pelo GCC.
+O GCC suporta sete linguagens de computador diferentes, mas os pré-requisitos para a maioria delas ainda não foram instalados. Consulte a [página do GCC no Livro BLFS](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/general/gcc.html) para obter instruções sobre como compilar todas as linguagens suportadas pelo GCC.
 
-O significado dos novos parâmetros de configure:
+O significado dos novos parâmetros de configuração:
 
 Este parâmetro faz com que o script configure use o programa ld instalado pelo pacote Binutils compilado anteriormente neste capítulo, em vez da versão cross-built que seria usada de outra forma.
 
-Por padrão, durante a instalação do GCC, alguns cabeçalhos do sistema seriam “corrigidos” para serem usados com o GCC. Isso não é necessário para um sistema Linux moderno e é potencialmente prejudicial se um pacote for reinstalado após a instalação do GCC. Esta opção impede que o GCC “corrija” os cabeçalhos.
+Por padrão, durante a instalação do GCC, alguns headers do sistema seriam “corrigidos” para serem usados com o GCC. Isso não é necessário para um sistema Linux moderno e potencialmente prejudicial se um package for reinstalado após a instalação do GCC. Este switch impede que o GCC “corrija” os headers.
 
-Esta opção informa ao GCC para vincular à cópia da biblioteca Zlib instalada no sistema, em vez de sua própria cópia interna.
+Este switch instrui o GCC a linkar com a cópia da biblioteca Zlib instalada no sistema, em vez de sua própria cópia interna.
 
 ### Nota
 
 PIE (executáveis independentes de posição) são programas binários que podem ser carregados em qualquer lugar na memória. Sem PIE, o recurso de segurança chamado ASLR (Address Space Layout Randomization) pode ser aplicado para as bibliotecas compartilhadas, mas não para os próprios executáveis. Habilitar PIE permite ASLR para os executáveis, além das bibliotecas compartilhadas, e mitiga alguns ataques baseados em endereços fixos de código ou dados sensíveis nos executáveis.
 
-SSP (Proteção contra Corrupção de Pilha) é uma técnica para garantir que a pilha de parâmetros não seja corrompida. A corrupção da pilha pode, por exemplo, alterar o endereço de retorno de uma sub-rotina, transferindo assim o controle para algum código perigoso (existente no programa ou em bibliotecas compartilhadas, ou injetado pelo atacante de alguma forma).
+SSP (Stack Smashing Protection) é uma técnica para garantir que a stack de parâmetros não seja corrompida. A corrupção da stack pode, por exemplo, alterar o endereço de retorno de uma sub-rotina, transferindo assim o controle para algum código perigoso (existente no programa ou em bibliotecas compartilhadas, ou injetado pelo atacante de alguma forma).
 
-Compile o pacote:
+Compile o package:
 
 ```bash
 make
@@ -61,9 +61,9 @@ make
 
 ### Importante
 
-Nesta seção, o conjunto de testes para o GCC é considerado importante, mas leva muito tempo. Construtores de primeira viagem são encorajados a executar o conjunto de testes. O tempo para executar os testes pode ser reduzido significativamente adicionando -jx ao comando make -k check abaixo, onde x é o número de núcleos de CPU em seu sistema.
+Nesta seção, o conjunto de testes para o GCC é considerado importante, mas leva muito tempo. Os builders de primeira viagem são encorajados a executar o conjunto de testes. O tempo para executar os testes pode ser significativamente reduzido adicionando -jx ao comando make -k check abaixo, onde x é o número de núcleos de CPU em seu sistema.
 
-O GCC pode precisar de mais espaço na pilha ao compilar alguns padrões de código extremamente complexos. Como precaução para as distros host com um limite de pilha apertado, defina explicitamente o limite rígido do tamanho da pilha como infinito. Na maioria das distros host (e no sistema LFS final), o limite rígido é infinito por padrão, mas não há mal em defini-lo explicitamente. Não é necessário alterar o limite flexível do tamanho da pilha porque o GCC o definirá automaticamente para um valor apropriado, desde que o valor não exceda o limite rígido:
+O GCC pode precisar de mais espaço de stack ao compilar alguns padrões de código extremamente complexos. Como precaução para as distros host com um limite de stack apertado, defina explicitamente o limite rígido do tamanho da stack como infinito. Na maioria das distros host (e no sistema LFS final), o limite rígido é infinito por padrão, mas não há problema em defini-lo explicitamente. Não é necessário alterar o limite flexível do tamanho da stack porque o GCC o definirá automaticamente para um valor apropriado, desde que o valor não exceda o limite rígido:
 
 ```bash
 ulimit -s -H unlimited
@@ -88,60 +88,60 @@ Para extrair um resumo dos resultados do conjunto de testes, execute:
 ../contrib/test_summary
 ```
 
-Para filtrar apenas os resumos, redirecione a saída através de grep -A7 Summ.
+Para filtrar apenas os resumos, direcione a saída através de grep -A7 Summ.
 
-Os resultados podem ser comparados com aqueles localizados em https://www.linuxfromscratch.org/lfs/build-logs/12.4/ e https://gcc.gnu.org/ml/gcc-testresults/.
+Os resultados podem ser comparados com aqueles localizados em [https://www.linuxfromscratch.org/lfs/build-logs/12.4/](https://www.linuxfromscratch.org/lfs/build-logs/12.4/) e [https://gcc.gnu.org/ml/gcc-testresults/](https://gcc.gnu.org/ml/gcc-testresults/).
 
 Os testes relacionados a pr90579.c são conhecidos por falhar.
 
 Algumas falhas inesperadas nem sempre podem ser evitadas. Em alguns casos, as falhas de teste dependem do hardware específico do sistema. A menos que os resultados do teste sejam muito diferentes daqueles no URL acima, é seguro continuar.
 
-Instale o pacote:
+Instale o package:
 
 ```bash
 make install
 ```
 
-O diretório de build do GCC agora pertence ao usuário tester, e a propriedade do diretório de cabeçalhos instalado (e seu conteúdo) está incorreta. Altere a propriedade para o usuário e grupo root:
+O diretório de build do GCC agora pertence ao tester, e a propriedade do diretório de headers instalado (e seu conteúdo) está incorreta. Altere a propriedade para o usuário e grupo root:
 
 ```bash
 chown -v -R root:root \
     /usr/lib/gcc/$(gcc -dumpmachine)/15.2.0/include{,-fixed}
 ```
 
-Crie um symlink exigido pelo FHS por razões "históricas".
+Crie um symlink exigido pelo [FHS](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/ch03s09.html) por razões “históricas”.
 
 ```bash
 ln -svr /usr/bin/cpp /usr/lib
 ```
 
-Muitos pacotes usam o nome cc para chamar o compilador C. Já criamos cc como um symlink em gcc-pass2, crie sua página de manual como um symlink também:
+Muitos packages usam o nome cc para chamar o compilador C. Já criamos cc como um symlink em [gcc-pass2](#/page/chapter06__gcc-pass2), crie sua página man também como um symlink:
 
 ```bash
 ln -sv gcc.1 /usr/share/man/man1/cc.1
 ```
 
-Adicione um symlink de compatibilidade para habilitar a compilação de programas com Otimização em Tempo de Link (LTO):
+Adicione um symlink de compatibilidade para permitir a compilação de programas com Link Time Optimization (LTO):
 
 ```bash
 ln -sfv ../../libexec/gcc/$(gcc -dumpmachine)/15.2.0/liblto_plugin.so \
         /usr/lib/bfd-plugins/
 ```
 
-Agora que nossa toolchain final está no lugar, é importante garantir novamente que a compilação e a vinculação funcionarão como esperado. Fazemos isso realizando algumas verificações de sanidade:
+Agora que nossa toolchain final está no lugar, é importante garantir novamente que a compilação e a linkagem funcionarão como esperado. Fazemos isso realizando algumas verificações de sanidade:
 
 ```bash
 echo 'int main(){}' | cc -x c - -v -Wl,--verbose &> dummy.log
 readelf -l a.out | grep ': /lib'
 ```
 
-Não deve haver erros, e a saída do último comando será (permitindo diferenças específicas da plataforma no nome do linker dinâmico):
+Não deve haver erros, e a saída do último comando será (permitindo diferenças específicas da plataforma no nome do dynamic linker):
 
 ```
 [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
 ```
 
-Agora certifique-se de que estamos configurados para usar os arquivos de inicialização corretos:
+Agora certifique-se de que estamos configurados para usar os arquivos de início corretos:
 
 ```bash
 grep -E -o '/usr/lib.*/S?crt[1in].*succeeded' dummy.log
@@ -155,9 +155,9 @@ A saída do último comando deve ser:
 /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.0/../../../../lib/crtn.o succeeded
 ```
 
-Dependendo da arquitetura da sua máquina, o acima pode diferir ligeiramente. A diferença será o nome do diretório depois de /usr/lib/gcc. O importante a procurar aqui é que o gcc encontrou todos os três arquivos crt*.o sob o diretório /usr/lib.
+Dependendo da arquitetura da sua máquina, o acima pode diferir ligeiramente. A diferença será o nome do diretório após /usr/lib/gcc. O importante a procurar aqui é que o gcc encontrou todos os três arquivos crt*.o sob o diretório /usr/lib.
 
-Verifique se o compilador está procurando pelos arquivos de cabeçalho corretos:
+Verifique se o compilador está procurando pelos arquivos de header corretos:
 
 ```bash
 grep -B4 '^ /usr/include' dummy.log
@@ -173,7 +173,7 @@ Este comando deve retornar a seguinte saída:
  /usr/include
 ```
 
-Novamente, o diretório nomeado após o seu target triplet pode ser diferente do acima, dependendo da arquitetura do seu sistema.
+Novamente, o diretório nomeado após seu target triplet pode ser diferente do acima, dependendo da arquitetura do seu sistema.
 
 Em seguida, verifique se o novo linker está sendo usado com os caminhos de busca corretos:
 
@@ -260,7 +260,7 @@ O compilador C
 
 cpp
 
-O pré-processador C; ele é usado pelo compilador para expandir as diretivas #include, #define e similares nos arquivos fonte
+O pré-processador C; é usado pelo compilador para expandir as diretivas #include, #define e similares nos arquivos de código-fonte
 
 g++
 
@@ -296,15 +296,15 @@ Ferramenta de processamento de perfil offline gcda
 
 lto-dump
 
-Ferramenta para fazer dump de arquivos objeto produzidos pelo GCC com LTO habilitado
+Ferramenta para despejar arquivos objeto produzidos pelo GCC com LTO habilitado
 
 libasan
 
-A biblioteca de runtime do Address Sanitizer
+A biblioteca de tempo de execução do Address Sanitizer
 
 libatomic
 
-Biblioteca de runtime built-in atômica do GCC
+Biblioteca de tempo de execução built-in atômica do GCC
 
 libcc1
 
@@ -312,11 +312,11 @@ Uma biblioteca que permite ao GDB usar o GCC
 
 libgcc
 
-Contém suporte de tempo de execução para gcc
+Contém suporte em tempo de execução para gcc
 
 libgcov
 
-Esta biblioteca é vinculada a um programa quando o GCC é instruído a habilitar a criação de perfil
+Esta biblioteca é vinculada a um programa quando o GCC é instruído a habilitar o profiling
 
 libgomp
 
@@ -324,7 +324,7 @@ Implementação GNU da API OpenMP para programação paralela de memória compar
 
 libhwasan
 
-A biblioteca de tempo de execução do Hardware-assisted Address Sanitizer
+A biblioteca de tempo de execução Hardware-assisted Address Sanitizer
 
 libitm
 
@@ -332,7 +332,7 @@ A biblioteca de memória transacional GNU
 
 liblsan
 
-A biblioteca de tempo de execução do Leak Sanitizer
+A biblioteca de tempo de execução Leak Sanitizer
 
 liblto_plugin
 
@@ -344,11 +344,11 @@ API da Biblioteca Matemática de Precisão Quádrupla do GCC
 
 libssp
 
-Contém rotinas que suportam a funcionalidade de proteção contra estouro de pilha do GCC. Normalmente não é usada, porque o Glibc também fornece essas rotinas.
+Contém rotinas que suportam a funcionalidade de proteção contra stack-smashing do GCC. Normalmente não é usada, porque o Glibc também fornece essas rotinas.
 
 libstdc++
 
-A biblioteca padrão C++
+A biblioteca C++ padrão
 
 libstdc++exp
 
@@ -356,7 +356,7 @@ Biblioteca de Contratos C++ Experimental
 
 libstdc++fs
 
-Biblioteca de sistema de arquivos ISO/IEC TS 18822:2015
+Biblioteca Filesystem ISO/IEC TS 18822:2015
 
 libsupc++
 
@@ -364,8 +364,8 @@ Fornece rotinas de suporte para a linguagem de programação C++
 
 libtsan
 
-A biblioteca de tempo de execução do Thread Sanitizer
+A biblioteca de tempo de execução Thread Sanitizer
 
 libubsan
 
-A biblioteca de tempo de execução do Undefined Behavior Sanitizer
+A biblioteca de tempo de execução Undefined Behavior Sanitizer

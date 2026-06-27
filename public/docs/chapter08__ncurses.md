@@ -19,13 +19,13 @@ Prepare o Ncurses para compilação:
 
 O significado das novas opções de configure:
 
-Isso faz com que o Ncurses build e instale bibliotecas C compartilhadas.
+Isso faz com que o Ncurses construa e instale bibliotecas C compartilhadas.
 
-Isso impede que o Ncurses build e instale bibliotecas C estáticas.
+Isso impede que o Ncurses construa e instale bibliotecas C estáticas.
 
-Isso impede que o Ncurses build e instale bibliotecas de debug.
+Isso impede que o Ncurses construa e instale bibliotecas de depuração.
 
-Isso faz com que o Ncurses build e instale bindings C++ compartilhados. Também impede que ele build e instale bindings C++ estáticos.
+Isso faz com que o Ncurses construa e instale bindings C++ compartilhados. Também impede que ele construa e instale bindings C++ estáticos.
 
 Este switch gera e instala arquivos .pc para o pkg-config.
 
@@ -35,9 +35,9 @@ Compile o pacote:
 make
 ```
 
-Este pacote possui uma test suite, mas ela só pode ser executada após o pacote ter sido instalado. Os testes residem no diretório test/. Veja o arquivo README nesse diretório para mais detalhes.
+Este pacote possui uma suíte de testes, mas ela só pode ser executada após a instalação do pacote. Os testes residem no diretório test/. Consulte o arquivo README nesse diretório para mais detalhes.
 
-A instalação deste pacote irá sobrescrever libncursesw.so.6.5 in-place. Isso pode causar a falha do processo shell que está usando código e dados do arquivo da biblioteca. Instale o pacote com DESTDIR, e substitua o arquivo da biblioteca corretamente usando o comando install (o header curses.h também é editado para garantir que o ABI de wide-character seja usado como fizemos na Seção 6.3, “Ncurses-6.5-20250809”):
+A instalação deste pacote sobrescreverá libncursesw.so.6.5 no local. Isso pode travar o processo shell que está usando código e dados do arquivo da biblioteca. Instale o pacote com DESTDIR e substitua o arquivo da biblioteca corretamente usando o comando install (o cabeçalho curses.h também é editado para garantir que a ABI de caracteres largos seja usada como fizemos na [Seção 6.3, “Ncurses-6.5-20250809”](#/page/chapter06__ncurses)):
 
 ```bash
 make DESTDIR=$PWD/dest install
@@ -48,7 +48,7 @@ sed -e 's/^#if.*XOPEN.*$/#if 1/' \
 cp -av dest/* /
 ```
 
-Muitas aplicações ainda esperam que o linker seja capaz de encontrar bibliotecas Ncurses de non-wide-character. Engane tais aplicações para que façam linking com bibliotecas de wide-character por meio de symlinks (note que os links .so são seguros apenas com curses.h editado para sempre usar o ABI de wide-character):
+Muitas aplicações ainda esperam que o linker seja capaz de encontrar bibliotecas Ncurses de caracteres não-largos. Engane essas aplicações para que se liguem a bibliotecas de caracteres largos por meio de symlinks (observe que os links .so são seguros apenas com curses.h editado para sempre usar a ABI de caracteres largos):
 
 ```bash
 for lib in ncurses form panel menu ; do
@@ -57,7 +57,7 @@ for lib in ncurses form panel menu ; do
 done
 ```
 
-Finalmente, certifique-se de que aplicações antigas que procuram por -lcurses no build time ainda são buildable:
+Finalmente, certifique-se de que aplicações antigas que procuram por -lcurses em tempo de build ainda possam ser construídas:
 
 ```bash
 ln -sfv libncursesw.so /usr/lib/libcurses.so
@@ -71,7 +71,7 @@ cp -v -R doc -T /usr/share/doc/ncurses-6.5-20250809
 
 ### Nota
 
-As instruções acima não criam bibliotecas Ncurses de non-wide-character, já que nenhum pacote instalado por compilação a partir de sources faria link contra elas em runtime. No entanto, as únicas aplicações binary-only conhecidas que fazem link contra bibliotecas Ncurses de non-wide-character exigem a versão 5. Se você deve ter tais bibliotecas por causa de alguma aplicação binary-only ou para estar em conformidade com o LSB, build o pacote novamente com os seguintes comandos:
+As instruções acima não criam bibliotecas Ncurses de caracteres não-largos, pois nenhum pacote instalado por compilação a partir de fontes se ligaria a elas em tempo de execução. No entanto, as únicas aplicações binárias conhecidas que se ligam a bibliotecas Ncurses de caracteres não-largos exigem a versão 5. Se você precisar de tais bibliotecas devido a alguma aplicação binária ou para estar em conformidade com o LSB, construa o pacote novamente com os seguintes comandos:
 
 ```bash
 make distclean
@@ -119,15 +119,15 @@ Limpa e define paradas de tabulação em um terminal
 
 tic
 
-O compilador de descrição de entrada terminfo que traduz um arquivo terminfo do formato source para o formato binary necessário para as rotinas da biblioteca ncurses [Um arquivo terminfo contém informações sobre as capacidades de um determinado terminal.]
+O compilador de descrição de entrada terminfo que traduz um arquivo terminfo do formato de origem para o formato binário necessário para as rotinas da biblioteca ncurses [Um arquivo terminfo contém informações sobre as capacidades de um determinado terminal.]
 
 toe
 
-Lista todos os tipos de terminal disponíveis, fornecendo o nome primário e a descrição para cada um
+Lista todos os tipos de terminal disponíveis, fornecendo o nome principal e a descrição para cada um
 
 tput
 
-Torna os valores das capacidades dependentes do terminal disponíveis para o shell; também pode ser usado para resetar ou inicializar um terminal ou relatar seu nome longo
+Disponibiliza os valores das capacidades dependentes do terminal para o shell; também pode ser usado para redefinir ou inicializar um terminal ou relatar seu nome longo
 
 tset
 
@@ -135,7 +135,7 @@ Pode ser usado para inicializar terminais
 
 libncursesw
 
-Contém funções para exibir texto de muitas maneiras complexas em uma tela de terminal; um bom exemplo do uso dessas funções é o menu exibido durante o make menuconfig do kernel
+Contém funções para exibir texto de várias maneiras complexas em uma tela de terminal; um bom exemplo do uso dessas funções é o menu exibido durante o make menuconfig do kernel
 
 libncurses++w
 

@@ -6,7 +6,7 @@ O pacote GRUB contém o GRand Unified Bootloader.
 
 ### Nota
 
-Se o seu sistema tem suporte a UEFI e você deseja inicializar o LFS com UEFI, você precisa instalar o GRUB com suporte a UEFI (e suas dependências) seguindo as instruções na página do BLFS. Você pode pular este pacote, ou instalar este pacote e o pacote BLFS GRUB para UEFI sem conflito (a página do BLFS fornece instruções para ambos os casos).
+Se o seu sistema possui suporte a UEFI e você deseja inicializar o LFS com UEFI, você precisa instalar o GRUB com suporte a UEFI (e suas dependências) seguindo as instruções na [ página do BLFS](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/postlfs/grub-efi.html). Você pode pular este pacote, ou instalar este pacote e o pacote BLFS GRUB para UEFI sem conflito (a página do BLFS fornece instruções para ambos os casos).
 
 ### Aviso
 
@@ -47,18 +47,18 @@ make
 
 A suíte de testes para este pacote não é recomendada. A maioria dos testes depende de pacotes que não estão disponíveis no ambiente LFS limitado. Para executar os testes de qualquer forma, execute make check.
 
-Instale o pacote, e mova o arquivo de suporte de Bash completion para o local recomendado pelos mantenedores de Bash completion:
+Instale o pacote, e mova o arquivo de suporte de autocompletar do Bash para o local recomendado pelos mantenedores de autocompletar do Bash:
 
 ```bash
 make install
 mv -v /etc/bash_completion.d/grub /usr/share/bash-completion/completions
 ```
 
-Tornar seu sistema LFS inicializável com GRUB será discutido na Seção 10.4, “Usando o GRUB para Configurar o Processo de Inicialização.”
+Tornar seu sistema LFS inicializável com GRUB será discutido na [Seção 10.4, “Usando o GRUB para Configurar o Processo de Inicialização.”](#/page/chapter10__grub)
 
 ## 8.64.2. Conteúdo do GRUB
 
-### Descrições Curtas
+### Descrições Breves
 
 grub-bios-setup
 
@@ -78,15 +78,15 @@ grub-fstest
 
 grub-glue-efi
 
-Cola binários de 32 bits e 64 bits em um único arquivo (para máquinas Apple)
+Cola binários de 32 e 64 bits em um único arquivo (para máquinas Apple)
 
 grub-install
 
-Instala o GRUB no seu drive
+Instala o GRUB em sua unidade
 
 grub-kbdcomp
 
-É um script que converte um xkb layout em um reconhecido pelo GRUB
+É um script que converte um layout xkb em um reconhecido pelo GRUB
 
 grub-macbless
 
@@ -94,7 +94,7 @@ grub-macbless
 
 grub-menulst2cfg
 
-Converte um menu.lst do GRUB Legacy em um grub.cfg para uso com GRUB 2
+Converte um menu.lst do GRUB Legacy em um grub.cfg para uso com o GRUB 2
 
 grub-mkconfig
 
@@ -118,11 +118,11 @@ Gera uma senha PBKDF2 criptografada para uso no menu de boot
 
 grub-mkrelpath
 
-Torna um nome de caminho do sistema relativo à sua raiz
+Torna um pathname de sistema relativo à sua raiz
 
 grub-mkrescue
 
-Cria uma imagem bootável do GRUB adequada para um disquete, CDROM/DVD, ou um drive USB
+Cria uma imagem bootável do GRUB adequada para um disquete, CDROM/DVD, ou uma unidade USB
 
 grub-mkstandalone
 
@@ -130,11 +130,11 @@ Gera uma imagem standalone
 
 grub-ofpathname
 
-É um programa auxiliar que imprime o caminho para um dispositivo GRUB
+É um programa auxiliar que imprime o path para um dispositivo GRUB
 
 grub-probe
 
-Sonda informações de dispositivo para um caminho ou dispositivo fornecido
+Sonda informações de dispositivo para um dado path ou dispositivo
 
 grub-reboot
 
@@ -142,11 +142,11 @@ Define a entrada de boot padrão para o GRUB apenas para o próximo boot
 
 grub-render-label
 
-Renderiza Apple .disk_label para Macs Apple
+Renderiza o .disk_label da Apple para Macs Apple
 
 grub-script-check
 
-Verifica o script de configuração do GRUB por erros de sintaxe
+Verifica o script de configuração do GRUB quanto a erros de sintaxe
 
 grub-set-default
 

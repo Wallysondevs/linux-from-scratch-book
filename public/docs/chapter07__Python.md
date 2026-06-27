@@ -1,6 +1,6 @@
 # 7.10. Python-3.13.7
 
-O pacote Python 3 contém o ambiente de desenvolvimento Python. É útil para programação orientada a objetos, escrever scripts, prototipar programas grandes e desenvolver aplicações inteiras. Python é uma linguagem de computador interpretada.
+O pacote Python 3 contém o ambiente de desenvolvimento Python. É útil para programação orientada a objetos, escrever scripts, prototipagem de programas grandes e desenvolvimento de aplicações completas. Python é uma linguagem de computador interpretada.
 
 ## 7.10.1. Instalação do Python
 
@@ -17,15 +17,15 @@ Prepare o Python para compilação:
             --without-static-libpython
 ```
 
-O significado da opção configure:
+O significado da opção de configuração:
 
-Este switch impede a instalação de bibliotecas estáticas.
+Esta opção impede a instalação de bibliotecas estáticas.
 
-Este switch desabilita o instalador de packages Python, que não é necessário nesta etapa.
+Esta opção desabilita o instalador de pacotes Python, que não é necessário nesta etapa.
 
-Este switch impede a build de uma biblioteca estática grande, mas desnecessária.
+Esta opção impede a construção de uma biblioteca estática grande, mas desnecessária.
 
-Compile o package:
+Compile o pacote:
 
 ```bash
 make
@@ -33,12 +33,12 @@ make
 
 ### Nota
 
-Alguns módulos Python 3 não podem ser built agora porque as dependências ainda não estão instaladas. Para o módulo ssl, uma mensagem Python requires a OpenSSL 1.1.1 or newer é exibida. A mensagem deve ser ignorada. Apenas certifique-se de que o comando make de nível superior não falhou. Os módulos opcionais não são necessários agora e eles serão built no Capítulo 8.
+Alguns módulos Python 3 não podem ser construídos agora porque as dependências ainda não estão instaladas. Para o módulo ssl, uma mensagem 'Python requires a OpenSSL 1.1.1 or newer' é exibida. A mensagem deve ser ignorada. Apenas certifique-se de que o comando make de nível superior não falhou. Os módulos opcionais não são necessários agora e serão construídos no Capítulo 8.
 
-Instale o package:
+Instale o pacote:
 
 ```bash
 make install
 ```
 
-Detalhes sobre este package estão localizados na Seção 8.51.2, “Conteúdo do Python 3.”
+Detalhes sobre este pacote estão localizados em [Seção 8.51.2, “Conteúdo do Python 3.”](#/page/chapter08__Python)

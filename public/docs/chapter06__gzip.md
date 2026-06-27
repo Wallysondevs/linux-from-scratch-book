@@ -1,6 +1,6 @@
 # 6.11. Gzip-1.14
 
-O pacote Gzip contém programas para comprimir e descomprimir arquivos.
+O pacote Gzip contém programas para compactar e descompactar arquivos.
 
 ## 6.11.1. Instalação do Gzip
 
@@ -22,4 +22,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.65.2, “Conteúdo do Gzip.”
+Detalhes sobre este pacote estão localizados em [Seção 8.65.2, “Conteúdo do Gzip.”](#/page/chapter08__gzip)

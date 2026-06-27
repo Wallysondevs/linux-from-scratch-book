@@ -38,7 +38,7 @@ make install
 
 O significado do comando:
 
-O sistema de build não recriará o hard link gawk-5.3.2 se ele já existir. Remova-o para garantir que o hard link anterior instalado na Seção 6.9, “Gawk-5.3.2” seja atualizado aqui.
+O sistema de build não recriará o hard link gawk-5.3.2 se ele já existir. Remova-o para garantir que o hard link anterior instalado em [Seção 6.9, “Gawk-5.3.2”](#/page/chapter06__gawk) seja atualizado aqui.
 
 O processo de instalação já criou awk como um symlink para gawk, crie sua página de manual como um symlink também:
 
@@ -54,7 +54,7 @@ install -vDm644 doc/{awkforai.txt,*.{eps,pdf,jpg}} -t /usr/share/doc/gawk-5.3.2
 
 ## 8.61.2. Conteúdo do Gawk
 
-### Descrições Curtas
+### Descrições Breves
 
 awk
 

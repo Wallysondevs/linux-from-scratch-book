@@ -4,7 +4,7 @@ O pacote Glibc contém a principal biblioteca C. Esta biblioteca fornece as roti
 
 ## 8.5.1. Instalação do Glibc
 
-Alguns dos programas Glibc usam o diretório /var/db, não compatível com FHS, para armazenar seus dados de tempo de execução. Aplique o seguinte patch para fazer com que tais programas armazenem seus dados de tempo de execução nos locais compatíveis com FHS:
+Alguns dos programas Glibc usam o diretório /var/db, que não está em conformidade com o FHS, para armazenar seus dados de tempo de execução. Aplique o seguinte patch para fazer com que tais programas armazenem seus dados de tempo de execução em locais compatíveis com o FHS:
 
 ```bash
 patch -Np1 -i ../glibc-2.42-fhs-1.patch
@@ -20,7 +20,7 @@ sed -e '/unistd.h/i #include <string.h>' \
     -i stdlib/abort.c 
 ```
 
-A documentação do Glibc recomenda o build do Glibc em um diretório build dedicado:
+A documentação do Glibc recomenda construir o Glibc em um diretório de build dedicado:
 
 ```bash
 mkdir -v build
@@ -50,13 +50,13 @@ Esta opção desabilita a opção -Werror passada ao GCC. Isso é necessário pa
 
 Esta opção informa ao sistema de build que este Glibc pode ser usado com kernels tão antigos quanto o 5.4. Isso significa gerar soluções alternativas caso uma chamada de sistema introduzida em uma versão posterior não possa ser usada.
 
-Esta opção aumenta a segurança do sistema adicionando código extra para verificar estouros de buffer, como ataques de stack smashing. Observe que o Glibc sempre sobrescreve explicitamente o padrão do GCC, então esta opção ainda é necessária mesmo que já tenhamos especificado --enable-default-ssp para o GCC.
+Esta opção aumenta a segurança do sistema adicionando código extra para verificar estouros de buffer, como ataques de stack smashing. Note que o Glibc sempre sobrescreve explicitamente o padrão do GCC, então esta opção ainda é necessária mesmo que já tenhamos especificado --enable-default-ssp para o GCC.
 
-Não faça o build do daemon de cache de serviço de nomes, que não é mais usado.
+Não construa o daemon de cache de serviço de nomes, que não é mais usado.
 
 Esta variável define a biblioteca correta para todos os sistemas. Não queremos que lib64 seja usada.
 
-Compile o package:
+Compile o pacote:
 
 ```bash
 make
@@ -64,7 +64,7 @@ make
 
 ### Importante
 
-Nesta seção, a suíte de testes para Glibc é considerada crítica. Não a pule sob nenhuma circunstância.
+Nesta seção, a suíte de testes do Glibc é considerada crítica. Não a pule sob nenhuma circunstância.
 
 Geralmente, alguns testes não passam. As falhas de teste listadas abaixo geralmente podem ser ignoradas com segurança.
 
@@ -102,9 +102,9 @@ sed '/test-installation/s@$(PERL)@echo not running@' -i ../Makefile
 
 Se estiver atualizando o Glibc para uma nova versão menor (por exemplo, de Glibc-2.36 para Glibc-2.42) em um sistema LFS em execução, você precisa tomar algumas precauções extras para evitar quebrar o sistema:
 
-- A atualização do Glibc em um sistema LFS anterior a 11.0 (exclusivo) não é suportada. Faça o rebuild do LFS se você estiver executando um sistema LFS tão antigo, mas precisar de um Glibc mais novo.
+- A atualização do Glibc em um sistema LFS anterior a 11.0 (exclusivo) não é suportada. Reconstrua o LFS se você estiver executando um sistema LFS tão antigo, mas precisar de um Glibc mais novo.
 
-- Se estiver atualizando em um sistema LFS anterior a 12.0 (exclusivo), instale o Libxcrypt seguindo a Seção 8.27, “Libxcrypt-4.4.38.” Além de uma instalação normal do Libxcrypt, você DEVE seguir a nota na seção Libxcrypt para instalar libcrypt.so.1* (substituindo libcrypt.so.1 da instalação anterior do Glibc).
+- Se estiver atualizando em um sistema LFS anterior a 12.0 (exclusivo), instale o Libxcrypt seguindo a [Seção 8.27, “Libxcrypt-4.4.38.”](#/page/chapter08__libxcrypt) Além de uma instalação normal do Libxcrypt, você DEVE seguir a nota na seção Libxcrypt para instalar libcrypt.so.1* (substituindo libcrypt.so.1 da instalação anterior do Glibc).
 
 - Se estiver atualizando em um sistema LFS anterior a 12.1 (exclusivo), remova o programa nscd: rm -f /usr/sbin/nscd Se este sistema (anterior ao LFS 12.1, exclusivo) for baseado em Systemd, também é necessário desabilitar e parar o serviço nscd agora: systemctl disable --now nscd
 
@@ -116,9 +116,9 @@ rm -f /usr/sbin/nscd
 systemctl disable --now nscd
 ```
 
-- Atualize o kernel e reinicie se for mais antigo que 5.4 (verifique a versão atual com uname -r) ou se você quiser atualizá-lo de qualquer forma, seguindo a Seção 10.3, “Linux-6.16.1.”
+- Atualize o kernel e reinicie se for mais antigo que 5.4 (verifique a versão atual com uname -r) ou se você quiser atualizá-lo de qualquer forma, seguindo a [Seção 10.3, “Linux-6.16.1.”](#/page/chapter10__kernel)
 
-- Atualize os headers da API do kernel se for mais antigo que 5.4 (verifique a versão atual com cat /usr/include/linux/version.h) ou se você quiser atualizá-lo de qualquer forma, seguindo a Seção 5.4, “Linux-6.16.1 API Headers” (mas removendo $LFS do comando cp).
+- Atualize os headers da API do kernel se for mais antigo que 5.4 (verifique a versão atual com cat /usr/include/linux/version.h) ou se você quiser atualizá-lo de qualquer forma, seguindo a [Seção 5.4, “Linux-6.16.1 API Headers”](#/page/chapter05__linux-headers) (mas removendo $LFS do comando cp).
 
 - Execute uma instalação DESTDIR e atualize as bibliotecas compartilhadas do Glibc no sistema usando um único comando install: make DESTDIR=$PWD/dest install install -vm755 dest/usr/lib/*.so.* /usr/lib
 
@@ -131,7 +131,7 @@ install -vm755 dest/usr/lib/*.so.* /usr/lib
 
 Em seguida, continue a executar o comando make install, o comando sed contra /usr/bin/ldd e os comandos para instalar os locales. Assim que terminarem, reinicie o sistema imediatamente.
 
-Quando o sistema tiver reiniciado com sucesso, se você estiver executando um sistema LFS anterior a 12.0 (exclusivo) onde o GCC não foi built com a opção --disable-fixincludes, mova dois headers do GCC para um local melhor e remova as cópias “fixed” obsoletas dos headers do Glibc:
+Quando o sistema tiver sido reiniciado com sucesso, se você estiver executando um sistema LFS anterior a 12.0 (exclusivo) onde o GCC não foi construído com a opção --disable-fixincludes, mova dois headers do GCC para um local melhor e remova as cópias “fixas” obsoletas dos headers do Glibc:
 
 ```bash
 DIR=$(dirname $(gcc -print-libgcc-file-name))
@@ -141,7 +141,7 @@ rm -rfv $DIR/include-fixed/*
 unset DIR
 ```
 
-Instale o package:
+Instale o pacote:
 
 ```bash
 make install
@@ -153,7 +153,7 @@ Corrija um path hardcoded para o carregador executável no script ldd:
 sed '/RTLDLIST=/s@/usr@@g' -i /usr/bin/ldd
 ```
 
-Em seguida, instale os locales que podem fazer o sistema responder em um idioma diferente. Nenhum desses locales é obrigatório, mas se alguns deles estiverem faltando, as suítes de testes de alguns packages pularão casos de teste importantes.
+Em seguida, instale os locales que podem fazer o sistema responder em um idioma diferente. Nenhum desses locales é obrigatório, mas se alguns deles estiverem faltando, as suítes de testes de alguns pacotes pularão casos de teste importantes.
 
 Locales individuais podem ser instalados usando o programa localedef. Por exemplo, o segundo comando localedef abaixo combina a definição de locale independente de charset /usr/share/i18n/locales/cs_CZ com a definição de charmap /usr/share/i18n/charmaps/UTF-8.gz e anexa o resultado ao arquivo /usr/lib/locale/locale-archive. As seguintes instruções instalarão o conjunto mínimo de locales necessário para a cobertura ideal dos testes:
 
@@ -194,7 +194,7 @@ localedef -i zh_HK -f BIG5-HKSCS zh_HK.BIG5-HKSCS
 localedef -i zh_TW -f UTF-8 zh_TW.UTF-8
 ```
 
-Além disso, instale o locale para seu próprio país, idioma e conjunto de caracteres.
+Além disso, instale o locale para o seu próprio país, idioma e conjunto de caracteres.
 
 Alternativamente, instale todas as localidades listadas no arquivo glibc-2.42/localedata/SUPPORTED (ele inclui todas as localidades listadas acima e muitas outras) de uma vez com o seguinte comando demorado:
 
@@ -204,7 +204,7 @@ make localedata/install-locales
 
 ### Nota
 
-Glibc agora usa libidn2 ao resolver nomes de domínio internacionalizados. Esta é uma dependência de tempo de execução. Se esta capacidade for necessária, as instruções para instalar libidn2 estão na página BLFS libidn2.
+Glibc agora usa libidn2 ao resolver nomes de domínio internacionalizados. Esta é uma dependência de tempo de execução. Se esta capacidade for necessária, as instruções para instalar libidn2 estão na [página BLFS libidn2](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/general/libidn2.html).
 
 ## 8.5.2. Configurando Glibc
 
@@ -258,11 +258,11 @@ unset ZONEINFO tz
 
 O significado dos comandos zic:
 
-Isso cria fusos horários posix sem segundos bissextos. É convencional colocá-los tanto em zoneinfo quanto em zoneinfo/posix. É necessário colocar os fusos horários POSIX em zoneinfo, caso contrário, várias suítes de teste reportarão erros. Em um sistema embarcado, onde o espaço é limitado e você não pretende atualizar os fusos horários, você poderia economizar 1.9 MB ao não usar o diretório posix, mas algumas aplicações ou suítes de teste podem produzir algumas falhas.
+Isso cria fusos horários posix sem segundos bissextos. É convencional colocá-los tanto em zoneinfo quanto em zoneinfo/posix. É necessário colocar os fusos horários POSIX em zoneinfo, caso contrário, várias suítes de teste reportarão erros. Em um sistema embarcado, onde o espaço é limitado e você não pretende atualizar os fusos horários, você poderia economizar 1.9 MB não usando o diretório posix, mas algumas aplicações ou suítes de teste podem produzir algumas falhas.
 
-Isso cria fusos horários 'right', incluindo segundos bissextos. Em um sistema embarcado, onde o espaço é limitado e você não pretende atualizar os fusos horários, ou se preocupa com a hora correta, você poderia economizar 1.9MB omitindo o diretório right.
+Isso cria fusos horários 'right', incluindo segundos bissextos. Em um sistema embarcado, onde o espaço é limitado e você não pretende atualizar os fusos horários, ou se preocupa com a hora correta, você poderia economizar 1.9MB omitindo o diretório 'right'.
 
-Isso cria o arquivo posixrules. Usamos Nova York porque POSIX exige que as regras de horário de verão estejam de acordo com as regras dos EUA.
+Isso cria o arquivo posixrules. Usamos Nova Iorque porque o POSIX exige que as regras de horário de verão estejam em conformidade com as regras dos EUA.
 
 Uma maneira de determinar o fuso horário local é executar o seguinte script:
 
@@ -270,9 +270,9 @@ Uma maneira de determinar o fuso horário local é executar o seguinte script:
 tzselect
 ```
 
-Após responder a algumas perguntas sobre a localização, o script irá exibir o nome do fuso horário (ex: America/Edmonton). Existem também outros fusos horários possíveis listados em /usr/share/zoneinfo como Canada/Eastern ou EST5EDT que não são identificados pelo script, mas podem ser usados.
+Após responder algumas perguntas sobre a localização, o script irá exibir o nome do fuso horário (ex: America/Edmonton). Existem também outros fusos horários possíveis listados em /usr/share/zoneinfo, como Canada/Eastern ou EST5EDT, que não são identificados pelo script, mas podem ser usados.
 
-Em seguida, crie o arquivo /etc/localtime executando:
+Então crie o arquivo /etc/localtime executando:
 
 ```bash
 ln -sfv /usr/share/zoneinfo/<xxx> /etc/localtime
@@ -282,7 +282,7 @@ Substitua <xxx> pelo nome do fuso horário selecionado (ex: Canada/Eastern).
 
 ### 8.5.2.3. Configurando o Carregador Dinâmico
 
-Por padrão, o carregador dinâmico (/lib/ld-linux.so.2) procura em /usr/lib por bibliotecas dinâmicas que são necessárias pelos programas quando executados. No entanto, se houver bibliotecas em diretórios diferentes de /usr/lib, estas precisam ser adicionadas ao arquivo /etc/ld.so.conf para que o carregador dinâmico as encontre. Dois diretórios que são comumente conhecidos por conter bibliotecas adicionais são /usr/local/lib e /opt/lib, então adicione esses diretórios ao caminho de busca do carregador dinâmico.
+Por padrão, o carregador dinâmico (/lib/ld-linux.so.2) pesquisa em /usr/lib por bibliotecas dinâmicas que são necessárias pelos programas quando executados. No entanto, se houver bibliotecas em diretórios diferentes de /usr/lib, estas precisam ser adicionadas ao arquivo /etc/ld.so.conf para que o carregador dinâmico as encontre. Dois diretórios que são comumente conhecidos por conter bibliotecas adicionais são /usr/local/lib e /opt/lib, então adicione esses diretórios ao caminho de pesquisa do carregador dinâmico.
 
 Crie um novo arquivo /etc/ld.so.conf executando o seguinte:
 
@@ -295,7 +295,7 @@ cat > /etc/ld.so.conf << "EOF"
 EOF
 ```
 
-Se desejado, o carregador dinâmico também pode procurar em um diretório e incluir o conteúdo dos arquivos encontrados lá. Geralmente, os arquivos neste diretório de inclusão são de uma linha especificando o caminho da biblioteca desejada. Para adicionar esta capacidade, execute os seguintes comandos:
+Se desejado, o carregador dinâmico também pode pesquisar um diretório e incluir o conteúdo dos arquivos encontrados lá. Geralmente, os arquivos neste diretório de inclusão são uma linha especificando o caminho da biblioteca desejado. Para adicionar esta capacidade, execute os seguintes comandos:
 
 ```bash
 cat >> /etc/ld.so.conf << "EOF"
@@ -428,7 +428,7 @@ A biblioteca matemática
 
 libmvec
 
-A biblioteca de matemática vetorial, vinculada conforme necessário quando libm é usada
+A biblioteca matemática vetorial, vinculada conforme necessário quando libm é usada
 
 libmcheck
 
@@ -448,11 +448,11 @@ Os módulos Name Service Switch, contendo funções para resolver nomes de host,
 
 libpcprofile
 
-Pode ser pré-carregada para perfilar um executável
+Pode ser pré-carregada para perfilar um executável de PC
 
 libpthread
 
-Biblioteca dummy que não contém funções. Anteriormente, continha funções que forneciam a maioria das interfaces especificadas pelas Extensões de Threads POSIX.1c e as interfaces de semáforo especificadas pelas Extensões de Tempo Real POSIX.1b; agora as funções estão em libc
+Biblioteca dummy que não contém funções. Anteriormente continha funções que forneciam a maioria das interfaces especificadas pelas Extensões de Threads POSIX.1c e as interfaces de semáforo especificadas pelas Extensões de Tempo Real POSIX.1b, agora as funções estão em libc
 
 libresolv
 
@@ -468,4 +468,4 @@ Contém funções úteis para construir depuradores para programas multi-threade
 
 libutil
 
-Biblioteca dummy que não contém funções. Anteriormente, continha código para funções “padrão” usadas em muitos utilitários Unix diferentes. Essas funções agora estão em libc
+Biblioteca dummy que não contém funções. Anteriormente continha código para funções “padrão” usadas em muitas utilidades Unix diferentes. Essas funções agora estão em libc

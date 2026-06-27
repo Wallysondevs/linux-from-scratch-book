@@ -1,6 +1,6 @@
 # 7.12. Util-linux-2.41.1
 
-O pacote Util-linux contém programas de utilidade diversos.
+O pacote Util-linux contém programas utilitários diversos.
 
 ## 7.12.1. Instalação do Util-linux
 
@@ -33,13 +33,13 @@ O significado das opções de configure:
 
 Isso define o local do arquivo que registra informações sobre o relógio de hardware de acordo com o FHS. Isso não é estritamente necessário para esta ferramenta temporária, mas evita a criação de um arquivo em outro local, que não seria sobrescrito ou removido ao construir o pacote util-linux final.
 
-Esta opção garante que os symlinks .so apontem para o arquivo da biblioteca compartilhada no mesmo diretório (/usr/lib) diretamente.
+Este switch garante que os symlinks .so apontem para o arquivo da biblioteca compartilhada diretamente no mesmo diretório (/usr/lib).
 
-Estas opções evitam avisos sobre a construção de componentes que exigem pacotes não presentes no LFS ou ainda não instalados.
+Estes switches evitam avisos sobre a construção de componentes que exigem pacotes que não estão no LFS ou ainda não foram instalados.
 
-Esta opção desabilita o uso de Python. Ela evita tentar construir bindings desnecessários.
+Este switch desabilita o uso de Python. Ele evita tentar construir bindings desnecessários.
 
-Esta opção define o local do socket usado por uuidd e libuuid corretamente.
+Este switch define o local do socket usado por uuidd e libuuid corretamente.
 
 Compile o pacote:
 
@@ -53,4 +53,4 @@ Instale o pacote:
 make install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.80.2, “Conteúdo do Util-linux.”
+Detalhes sobre este pacote estão localizados em [Seção 8.80.2, “Conteúdo do Util-linux.”](#/page/chapter08__util-linux)

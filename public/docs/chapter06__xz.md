@@ -1,6 +1,6 @@
 # 6.16. Xz-5.8.1
 
-O pacote Xz contém programas para compactar e descompactar arquivos. Ele fornece capacidades para os formatos de compactação lzma e o mais recente xz. Compactar arquivos de texto com xz resulta em uma porcentagem de compactação melhor do que com os comandos tradicionais gzip ou bzip2.
+O pacote Xz contém programas para compactar e descompactar arquivos. Ele fornece recursos para os formatos de compactação lzma e o mais recente xz. A compactação de arquivos de texto com xz resulta em uma porcentagem de compactação melhor do que com os comandos tradicionais gzip ou bzip2.
 
 ## 6.16.1. Instalação do Xz
 
@@ -26,10 +26,10 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Remova o arquivo de archive libtool porque é prejudicial para a compilação cruzada:
+Remova o arquivo de arquivamento libtool porque é prejudicial para a compilação cruzada:
 
 ```bash
 rm -v $LFS/usr/lib/liblzma.la
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.8.2, “Conteúdo do Xz.”
+Detalhes sobre este pacote estão localizados em [Seção 8.8.2, “Conteúdo do Xz.”](#/page/chapter08__xz)

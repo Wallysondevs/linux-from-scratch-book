@@ -1,6 +1,6 @@
 # 6.7. File-5.46
 
-O pacote File contém um utilitário para determinar o tipo de um determinado arquivo ou arquivos.
+O pacote File contém um utilitário para determinar o tipo de um dado arquivo ou arquivos.
 
 ## 6.7.1. Instalação do File
 
@@ -39,10 +39,10 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Remova o arquivo de archive libtool porque é prejudicial para a cross compilation:
+Remova o arquivo de arquivamento libtool porque é prejudicial para a compilação cruzada:
 
 ```bash
 rm -v $LFS/usr/lib/libmagic.la
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.11.2, “Conteúdo do File.”
+Detalhes sobre este pacote estão localizados em [Seção 8.11.2, “Conteúdo do File.”](#/page/chapter08__file)

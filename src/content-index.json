@@ -41,7 +41,7 @@
    },
    {
     "slug": "prologue__preface",
-    "title": "Prefácio"
+    "title": "Preface"
    }
   ]
  },
@@ -67,7 +67,7 @@
    },
    {
     "slug": "chapter01__askforhelp",
-    "title": "1.5. Ajuda"
+    "title": "1.5. Help"
    }
   ]
  },
@@ -85,11 +85,11 @@
    },
    {
     "slug": "chapter02__stages",
-    "title": "2.3. Construindo o LFS em Estágios"
+    "title": "2.3. Building LFS in Stages"
    },
    {
     "slug": "chapter02__creatingpartition",
-    "title": "2.4. Criando uma Nova Partição"
+    "title": "2.4. Creating a New Partition"
    },
    {
     "slug": "chapter02__creatingfilesystem",
@@ -141,11 +141,11 @@
    },
    {
     "slug": "chapter04__settingenvironment",
-    "title": "4.4. Configurando o Ambiente"
+    "title": "4.4. Setting Up the Environment"
    },
    {
     "slug": "chapter04__aboutsbus",
-    "title": "4.5. Sobre SBUs"
+    "title": "4.5. About SBUs"
    },
    {
     "slug": "chapter04__abouttestsuites",
@@ -163,11 +163,11 @@
    },
    {
     "slug": "chapter05__binutils-pass1",
-    "title": "5.2. Binutils-2.45 - Etapa 1"
+    "title": "5.2. Binutils-2.45 - Pass 1"
    },
    {
     "slug": "chapter05__gcc-pass1",
-    "title": "5.3. GCC-15.2.0 - Etapa 1"
+    "title": "5.3. GCC-15.2.0 - Pass 1"
    },
    {
     "slug": "chapter05__linux-headers",
@@ -179,7 +179,7 @@
    },
    {
     "slug": "chapter05__gcc-libstdc++",
-    "title": "5.6. Libstdc++ do GCC-15.2.0"
+    "title": "5.6. Libstdc++ from GCC-15.2.0"
    }
   ]
  },
@@ -253,11 +253,11 @@
    },
    {
     "slug": "chapter06__binutils-pass2",
-    "title": "6.17. Binutils-2.45 - Etapa 2"
+    "title": "6.17. Binutils-2.45 - Pass 2"
    },
    {
     "slug": "chapter06__gcc-pass2",
-    "title": "6.18. GCC-15.2.0 - Etapa 2"
+    "title": "6.18. GCC-15.2.0 - Pass 2"
    }
   ]
  },
@@ -267,7 +267,7 @@
   "pages": [
    {
     "slug": "chapter07__introduction",
-    "title": "7.1. Introdução"
+    "title": "7.1. Introduction"
    },
    {
     "slug": "chapter07__changingowner",
@@ -275,11 +275,11 @@
    },
    {
     "slug": "chapter07__kernfs",
-    "title": "7.3. Preparando Sistemas de Arquivos Virtuais do Kernel"
+    "title": "7.3. Preparing Virtual Kernel File Systems"
    },
    {
     "slug": "chapter07__chroot",
-    "title": "7.4. Entrando no Ambiente Chroot"
+    "title": "7.4. Entering the Chroot Environment"
    },
    {
     "slug": "chapter07__creatingdirs",
@@ -315,7 +315,7 @@
    },
    {
     "slug": "chapter07__cleanup",
-    "title": "7.13. Limpando e Salvando o Sistema Temporário"
+    "title": "7.13. Cleaning up and Saving the Temporary System"
    }
   ]
  },
@@ -329,7 +329,7 @@
    },
    {
     "slug": "chapter08__pkgmgt",
-    "title": "8.2. Gerenciamento de Pacotes"
+    "title": "8.2. Package Management"
    },
    {
     "slug": "chapter08__man-pages",
@@ -649,7 +649,7 @@
    },
    {
     "slug": "chapter08__stripping",
-    "title": "8.83. Remoção de Símbolos"
+    "title": "8.83. Stripping"
    },
    {
     "slug": "chapter08__cleanup",
@@ -663,19 +663,19 @@
   "pages": [
    {
     "slug": "chapter09__introduction",
-    "title": "9.1. Introdução"
+    "title": "9.1. Introduction"
    },
    {
     "slug": "chapter09__network",
-    "title": "9.2. Configuração Geral de Rede"
+    "title": "9.2. General Network Configuration"
    },
    {
     "slug": "chapter09__udev",
-    "title": "9.3. Visão Geral do Manuseio de Dispositivos e Módulos"
+    "title": "9.3. Overview of Device and Module Handling"
    },
    {
     "slug": "chapter09__symlinks",
-    "title": "9.4. Gerenciando Dispositivos"
+    "title": "9.4. Managing Devices"
    },
    {
     "slug": "chapter09__clock",
@@ -683,7 +683,7 @@
    },
    {
     "slug": "chapter09__console",
-    "title": "9.6. Configurando o Console Linux"
+    "title": "9.6. Configuring the Linux Console"
    },
    {
     "slug": "chapter09__locale",
@@ -743,7 +743,7 @@
    },
    {
     "slug": "chapter11__whatnow",
-    "title": "11.4. Recursos Adicionais"
+    "title": "11.4. Additional Resources"
    },
    {
     "slug": "chapter11__afterlfs",

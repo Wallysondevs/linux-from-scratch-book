@@ -24,4 +24,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.31.2, “Conteúdo do Sed.”
+Detalhes sobre este pacote estão localizados em [Seção 8.31.2, “Conteúdo do Sed.”](#/page/chapter08__sed)

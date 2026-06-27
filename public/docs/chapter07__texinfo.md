@@ -22,4 +22,4 @@ Instale o pacote:
 make install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.72.2, “Conteúdo do Texinfo.”
+Detalhes sobre este pacote estão localizados em [Seção 8.72.2, “Conteúdo do Texinfo.”](#/page/chapter08__texinfo)

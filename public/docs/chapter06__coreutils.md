@@ -2,9 +2,9 @@
 
 O pacote Coreutils contém os programas utilitários básicos necessários por todo sistema operacional.
 
-## 6.5.1. Instalação de Coreutils
+## 6.5.1. Instalação do Coreutils
 
-Prepare Coreutils para compilação:
+Prepare o Coreutils para compilação:
 
 ```bash
 ./configure --prefix=/usr                     \
@@ -16,7 +16,7 @@ Prepare Coreutils para compilação:
 
 O significado das opções de configure:
 
-Isso permite que o binário hostname seja construído e instalado – ele é desabilitado por padrão, mas é requerido pela suíte de testes Perl.
+Isso habilita o binário hostname a ser construído e instalado – ele é desabilitado por padrão, mas é requerido pela suíte de testes Perl.
 
 Compile o pacote:
 
@@ -39,4 +39,4 @@ mv -v $LFS/usr/share/man/man1/chroot.1 $LFS/usr/share/man/man8/chroot.8
 sed -i 's/"1"/"8"/'                    $LFS/usr/share/man/man8/chroot.8
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.59.2, “Conteúdo de Coreutils.”
+Detalhes sobre este pacote estão localizados em [Seção 8.59.2, “Conteúdo do Coreutils.”](#/page/chapter08__coreutils)

@@ -24,4 +24,4 @@ Instale o pacote:
 make DESTDIR=$LFS install
 ```
 
-Detalhes sobre este pacote estão localizados na Seção 8.70.2, “Conteúdo do Patch.”
+Detalhes sobre este pacote estão localizados em [Seção 8.70.2, “Conteúdo do Patch.”](#/page/chapter08__patch)

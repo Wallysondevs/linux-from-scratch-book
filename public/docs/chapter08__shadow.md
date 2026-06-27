@@ -1,18 +1,18 @@
 # 8.28. Shadow-4.18.0
 
-O pacote Shadow contém programas para lidar com senhas de forma segura.
+O pacote Shadow contém programas para gerenciar senhas de forma segura.
 
 ## 8.28.1. Instalação do Shadow
 
 ### Importante
 
-Se você instalou o Linux-PAM, você deve seguir as instruções do BLFS em vez desta página para construir (ou reconstruir ou atualizar) o Shadow.
+Se você instalou o Linux-PAM, você deve seguir [a instrução do BLFS](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/postlfs/shadow.html) em vez desta página para buildar (ou, rebuildar ou atualizar) o shadow.
 
 ### Nota
 
-Se você deseja forçar o uso de senhas fortes, instale e configure o Linux-PAM primeiro. Em seguida, instale e configure o Shadow com suporte a PAM. Finalmente, instale o libpwquality e configure o PAM para usá-lo.
+Se você deseja impor o uso de senhas fortes, [instale e configure o Linux-PAM](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/postlfs/linux-pam.html) primeiro. Em seguida, [instale e configure o shadow com suporte a PAM](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/postlfs/shadow.html). Finalmente, [instale o libpwquality e configure o PAM para usá-lo](https://www.linuxfromscratch.org/blfs/view/12.4-systemd/postlfs/libpwquality.html).
 
-Desabilite a instalação do programa groups e suas páginas de manual, pois o Coreutils fornece uma versão melhor. Além disso, evite a instalação de páginas de manual que já foram instaladas na Seção 8.3, “Man-pages-6.15”:
+Desabilite a instalação do programa groups e suas páginas man, já que o Coreutils fornece uma versão melhor. Além disso, evite a instalação de páginas de manual que já foram instaladas na [Seção 8.3, “Man-pages-6.15”](#/page/chapter08__man-pages):
 
 ```bash
 sed -i 's/groups$(EXEEXT) //' src/Makefile.in
@@ -21,11 +21,11 @@ find man -name Makefile.in -exec sed -i 's/getspnam\.3 / /' {} \;
 find man -name Makefile.in -exec sed -i 's/passwd\.5 / /'   {} \;
 ```
 
-Em vez de usar o método de criptografia padrão crypt, use o método muito mais seguro YESCRYPT de criptografia de senha, que também permite senhas com mais de 8 caracteres. Também é necessário alterar o local obsoleto /var/spool/mail para caixas de correio de usuário que o Shadow usa por padrão para o local /var/mail usado atualmente. E, remova /bin e /sbin do PATH, já que são simplesmente symlinks para seus equivalentes em /usr.
+Em vez de usar o método crypt padrão, use o método YESCRYPT muito mais seguro de criptografia de senha, que também permite senhas com mais de 8 caracteres. Também é necessário alterar o local obsoleto /var/spool/mail para caixas de correio de usuário que o Shadow usa por padrão para o local /var/mail usado atualmente. E, remova /bin e /sbin do PATH, já que são simplesmente symlinks para seus equivalentes em /usr.
 
 ### Aviso
 
-Incluir /bin e/ou /sbin na variável PATH pode fazer com que alguns pacotes BLFS falhem na construção, então não faça isso no arquivo .bashrc ou em qualquer outro lugar.
+Incluir /bin e/ou /sbin na variável PATH pode fazer com que alguns pacotes BLFS falhem ao buildar, então não faça isso no arquivo .bashrc ou em qualquer outro lugar.
 
 ```bash
 sed -e 's:#ENCRYPT_METHOD DES:ENCRYPT_METHOD YESCRYPT:' \
@@ -47,9 +47,9 @@ touch /usr/bin/passwd
 
 O significado das novas opções de configuração:
 
-O arquivo /usr/bin/passwd precisa existir porque sua localização está codificada em alguns programas; se ele ainda não existir, o script de instalação o criará no lugar errado.
+O arquivo /usr/bin/passwd precisa existir porque sua localização é hardcoded em alguns programas; se ele ainda não existir, o script de instalação o criará no lugar errado.
 
-O shell expande isso para duas chaves, --with-bcrypt e --with-yescrypt. Elas permitem que o Shadow use os algoritmos Bcrypt e Yescrypt implementados pelo Libxcrypt para hash de senhas. Esses algoritmos são mais seguros (em particular, muito mais resistentes a ataques baseados em GPU) do que os algoritmos SHA tradicionais.
+O shell expande isso para duas chaves, --with-bcrypt e --with-yescrypt. Eles permitem que o shadow use os algoritmos Bcrypt e Yescrypt implementados pelo Libxcrypt para hashing de senhas. Esses algoritmos são mais seguros (em particular, muito mais resistentes a ataques baseados em GPU) do que os algoritmos SHA tradicionais.
 
 O nome de usuário mais longo permitido é de 32 caracteres. Faça com que o comprimento máximo de um nome de grupo seja o mesmo.
 
@@ -72,7 +72,7 @@ make -C man install-man
 
 ## 8.28.2. Configurando o Shadow
 
-Este pacote contém utilitários para adicionar, modificar e excluir usuários e grupos; definir e alterar suas senhas; e realizar outras tarefas administrativas. Para uma explicação completa do que significa o sombreamento de senhas (password shadowing), consulte o arquivo doc/HOWTO dentro da árvore de código-fonte descompactada. Se você usar o suporte a Shadow, lembre-se de que os programas que precisam verificar senhas (gerenciadores de exibição, programas FTP, daemons pop3, etc.) devem ser compatíveis com Shadow. Ou seja, eles devem ser capazes de funcionar com senhas sombreadas.
+Este pacote contém utilitários para adicionar, modificar e excluir usuários e grupos; definir e alterar suas senhas; e realizar outras tarefas administrativas. Para uma explicação completa do que significa password shadowing, consulte o arquivo doc/HOWTO dentro da árvore de código-fonte descompactada. Se você usa o suporte do Shadow, tenha em mente que os programas que precisam verificar senhas (gerenciadores de exibição, programas FTP, daemons pop3, etc.) devem ser compatíveis com Shadow. Ou seja, eles devem ser capazes de trabalhar com senhas sombreadas.
 
 Para habilitar senhas sombreadas, execute o seguinte comando:
 
@@ -86,7 +86,7 @@ Para habilitar senhas de grupo sombreadas, execute:
 grpconv
 ```
 
-A configuração padrão do Shadow para o utilitário useradd precisa de algumas explicações. Primeiro, a ação padrão para o utilitário useradd é criar o usuário e um grupo com o mesmo nome do usuário. Por padrão, os números de ID de usuário (UID) e ID de grupo (GID) começarão em 1000. Isso significa que, se você não passar parâmetros extras para useradd, cada usuário será membro de um grupo único no sistema. Se esse comportamento for indesejável, você precisará passar o parâmetro -g ou -N para useradd, ou então alterar a configuração de USERGROUPS_ENAB em /etc/login.defs. Consulte useradd(8) para mais informações.
+A configuração padrão do Shadow para o utilitário useradd precisa de alguma explicação. Primeiro, a ação padrão para o utilitário useradd é criar o usuário e um grupo com o mesmo nome do usuário. Por padrão, os números de ID de usuário (UID) e ID de grupo (GID) começarão em 1000. Isso significa que, se você não passar parâmetros extras para o useradd, cada usuário será membro de um grupo único no sistema. Se este comportamento for indesejável, você precisará passar o parâmetro -g ou -N para o useradd, ou então alterar a configuração de USERGROUPS_ENAB em /etc/login.defs. Consulte [useradd(8)](https://man.archlinux.org/man/useradd.8) para mais informações.
 
 Segundo, para alterar os parâmetros padrão, o arquivo /etc/default/useradd deve ser criado e adaptado às suas necessidades específicas. Crie-o com:
 
@@ -95,11 +95,11 @@ mkdir -p /etc/default
 useradd -D --gid 999
 ```
 
-Explicações dos parâmetros de /etc/default/useradd
+/etc/default/useradd explicações dos parâmetros
 
-Este parâmetro define o início dos números de grupo usados no arquivo /etc/group. O valor particular 999 vem do parâmetro --gid acima. Você pode defini-lo para qualquer valor desejado. Observe que useradd nunca reutilizará um UID ou GID. Se o número identificado neste parâmetro for usado, ele usará o próximo número disponível. Observe também que, se você não tiver um grupo com um ID igual a este número em seu sistema, a primeira vez que você usar useradd sem o parâmetro -g, uma mensagem de erro será gerada — useradd: unknown GID 999, mesmo que a conta tenha sido criada corretamente. É por isso que criamos o grupo users com este ID de grupo na Seção 7.6, “Criando Arquivos Essenciais e Symlinks.”
+Este parâmetro define o início dos números de grupo usados no arquivo /etc/group. O valor particular 999 vem do parâmetro --gid acima. Você pode defini-lo para qualquer valor desejado. Observe que o useradd nunca reutilizará um UID ou GID. Se o número identificado neste parâmetro for usado, ele usará o próximo número disponível. Observe também que, se você não tiver um grupo com um ID igual a este número em seu sistema, na primeira vez que usar o useradd sem o parâmetro -g, uma mensagem de erro será gerada—useradd: unknown GID 999, mesmo que a conta tenha sido criada corretamente. É por isso que criamos o grupo users com este ID de grupo na [Seção 7.6, “Criando Arquivos Essenciais e Symlinks.”](#/page/chapter07__createfiles)
 
-Este parâmetro faz com que useradd crie um arquivo de caixa de correio para cada novo usuário. useradd atribuirá a propriedade de grupo deste arquivo ao grupo mail com permissões 0660. Se você preferir não criar esses arquivos, execute o seguinte comando:
+Este parâmetro faz com que o useradd crie um arquivo de caixa de correio para cada novo usuário. O useradd atribuirá a propriedade de grupo deste arquivo ao grupo mail com permissões 0660. Se você preferir não criar esses arquivos, execute o seguinte comando:
 
 ```bash
 sed -i '/MAIL/s/yes/no/' /etc/default/useradd
@@ -115,7 +115,7 @@ passwd root
 
 ## 8.28.4. Conteúdo do Shadow
 
-### Descrições Curtas
+### Descrições Breves
 
 chage
 
@@ -127,11 +127,11 @@ Usado para alterar o nome completo de um usuário e outras informações
 
 chgpasswd
 
-Usado para atualizar senhas de grupo em modo de lote
+Usado para atualizar senhas de grupo em modo batch
 
 chpasswd
 
-Usado para atualizar senhas de usuário em modo de lote
+Usado para atualizar senhas de usuário em modo batch
 
 chsh
 
@@ -147,7 +147,7 @@ faillog
 
 getsubids
 
-É usado para listar os intervalos de ID subordinados para um usuário
+É usado para listar os intervalos de IDs subordinados para um usuário
 
 gpasswd
 
@@ -183,15 +183,15 @@ Atualiza /etc/group a partir de /etc/gshadow e então exclui este último
 
 login
 
-É usado pelo sistema para permitir que usuários façam login
+É usado pelo sistema para permitir que os usuários façam login
 
 logoutd
 
-É um daemon usado para aplicar restrições de tempo de login e portas
+É um daemon usado para impor restrições de tempo e portas de login
 
 newgidmap
 
-É usado para definir o mapeamento de gid de um namespace de usuário
+É usado para definir o mapeamento de GID de um namespace de usuário
 
 newgrp
 
@@ -199,7 +199,7 @@ newgrp
 
 newuidmap
 
-É usado para definir o mapeamento de uid de um namespace de usuário
+É usado para definir o mapeamento de UID de um namespace de usuário
 
 newusers
 
@@ -207,7 +207,7 @@ newusers
 
 nologin
 
-Exibe uma mensagem informando que uma conta não está disponível; ele foi projetado para ser usado como o shell padrão para contas desabilitadas
+Exibe uma mensagem informando que uma conta não está disponível; ele é projetado para ser usado como o shell padrão para contas desabilitadas
 
 passwd
 
@@ -223,11 +223,11 @@ Cria ou atualiza o arquivo de senha shadow a partir do arquivo de senha normal
 
 pwunconv
 
-Atualiza /etc/passwd a partir de /etc/shadow e então apaga este último
+Atualiza /etc/passwd a partir de /etc/shadow e então exclui este último
 
 sg
 
-Executa um comando dado enquanto o GID do usuário é definido para o do grupo dado
+Executa um comando fornecido enquanto o GID do usuário é definido para o do grupo fornecido
 
 su
 
@@ -235,15 +235,15 @@ Executa um shell com IDs de usuário e grupo substitutos
 
 useradd
 
-Cria um novo usuário com o nome dado, ou atualiza as informações padrão de novo usuário
+Cria um novo usuário com o nome fornecido, ou atualiza as informações padrão de novo usuário
 
 userdel
 
-Apaga a conta de usuário especificada
+Exclui a conta de usuário especificada
 
 usermod
 
-É usado para modificar o nome de login do usuário dado, identificação de usuário (UID), shell, grupo inicial, diretório home, etc.
+É usado para modificar o nome de login do usuário fornecido, identificação de usuário (UID), shell, grupo inicial, diretório home, etc.
 
 vigr
 
@@ -255,4 +255,4 @@ Edita os arquivos /etc/passwd ou /etc/shadow
 
 libsubid
 
-biblioteca para lidar com ranges de id subordinados para usuários e grupos
+biblioteca para gerenciar intervalos de IDs subordinados para usuários e grupos

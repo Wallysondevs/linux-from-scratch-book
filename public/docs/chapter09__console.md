@@ -1,8 +1,8 @@
-# 9.6. Configurando o Console Linux
+# 9.6. Configuring the Linux Console
 
 Esta seção discute como configurar o serviço de sistema systemd-vconsole-setup, que configura a fonte do console virtual e o keymap do console.
 
-O serviço systemd-vconsole-setup lê o arquivo /etc/vconsole.conf para obter informações de configuração. Decida qual keymap e fonte de tela serão usados. Vários HOWTOs específicos de idioma também podem ajudar com isso, veja https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html. Examine a saída de localectl list-keymaps para uma lista de keymaps de console válidos. Procure no diretório /usr/share/consolefonts por fontes de tela válidas.
+O serviço systemd-vconsole-setup lê o arquivo /etc/vconsole.conf para obter informações de configuração. Decida qual keymap e fonte de tela serão usados. Vários HOWTOs específicos de idioma também podem ajudar com isso, veja [https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html](https://tldp.org/HOWTO/HOWTO-INDEX/other-lang.html). Examine a saída de localectl list-keymaps para uma lista de keymaps de console válidos. Procure no diretório /usr/share/consolefonts por fontes de tela válidas.
 
 O arquivo /etc/vconsole.conf deve conter linhas no formato: VARIABLE=value. As seguintes variáveis são reconhecidas:
 
@@ -12,11 +12,11 @@ Esta variável pode ser usada para configurar um segundo keymap de alternância 
 
 Esta variável especifica a fonte usada pelo console virtual.
 
-Esta variável especifica o mapa do console a ser usado.
+Esta variável especifica o mapa de console a ser usado.
 
-Esta variável especifica o mapa de fontes Unicode.
+Esta variável especifica o mapa de fonte Unicode.
 
-Usaremos C.UTF-8 como o locale para sessões interativas no console Linux na Seção 9.7, “Configurando o Locale do Sistema.” As fontes de console fornecidas pelo pacote Kbd contendo os glyphs para todos os caracteres das mensagens do programa no locale C.UTF-8 são LatArCyrHeb*.psfu.gz, LatGrkCyr*.psfu.gz, Lat2-Terminus16.psfu.gz e pancyrillic.f16.psfu.gz em /usr/share/consolefonts (as outras fontes de console fornecidas não possuem glyphs de alguns caracteres como as aspas Unicode de abertura/fechamento e o traço inglês Unicode). Então defina uma delas, por exemplo Lat2-Terminus16.psfu.gz, como a fonte de console padrão:
+Usaremos C.UTF-8 como o locale para sessões interativas no console Linux na [Seção 9.7, “Configurando o Locale do Sistema.”](#/page/chapter09__locale) As fontes de console fornecidas pelo pacote Kbd contendo os glifos para todos os caracteres das mensagens do programa no locale C.UTF-8 são LatArCyrHeb*.psfu.gz, LatGrkCyr*.psfu.gz, Lat2-Terminus16.psfu.gz e pancyrillic.f16.psfu.gz em /usr/share/consolefonts (as outras fontes de console fornecidas não possuem glifos de alguns caracteres como as aspas Unicode esquerda/direita e o travessão Unicode inglês). Então defina uma delas, por exemplo Lat2-Terminus16.psfu.gz como a fonte de console padrão:
 
 ```bash
 echo FONT=Lat2-Terminus16 > /etc/vconsole.conf
@@ -47,7 +47,7 @@ Você também pode usar o utilitário localectl com os parâmetros correspondent
 localectl set-x11-keymap LAYOUT [MODEL] [VARIANT] [OPTIONS]
 ```
 
-Para listar os valores possíveis para os parâmetros de localectl set-x11-keymap, execute localectl com os parâmetros listados abaixo:
+Para listar os valores possíveis para os parâmetros localectl set-x11-keymap, execute localectl com os parâmetros listados abaixo:
 
 Mostra modelos de mapeamento de teclado X11 conhecidos.
 
