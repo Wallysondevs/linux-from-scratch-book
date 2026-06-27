@@ -25,6 +25,7 @@
 }
 
 * { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
 html { scrollbar-color: hsl(var(--lfs-orange)) hsl(var(--lfs-bg-2)); scrollbar-width: thin; scroll-behavior: smooth; }
 body {
   margin: 0;
@@ -39,8 +40,9 @@ body {
 ::-webkit-scrollbar-thumb:hover { background: hsl(var(--lfs-orange)); }
 
 /* ── Markdown prose ── */
-.prose { max-width: 100%; font-size: 1rem; }
+.prose { max-width: 100%; font-size: 1rem; overflow-wrap: break-word; word-wrap: break-word; }
 .prose > *:first-child { margin-top: 0; }
+.prose p { margin: 0.8rem 0; line-height: 1.75; color: hsl(var(--lfs-fg) / 0.92); overflow-wrap: break-word; }
 .prose h1 {
   font-size: 2rem; font-weight: 800; color: hsl(var(--lfs-orange));
   margin: 0 0 1.25rem; padding-bottom: 0.6rem;
@@ -50,7 +52,6 @@ body {
 .prose h2 { font-size: 1.45rem; font-weight: 700; color: hsl(var(--lfs-amber)); margin: 2rem 0 0.75rem; }
 .prose h3 { font-size: 1.18rem; font-weight: 600; color: hsl(var(--lfs-fg)); margin: 1.5rem 0 0.5rem; }
 .prose h4 { font-size: 1.05rem; font-weight: 600; color: hsl(var(--lfs-fg)); margin: 1.25rem 0 0.5rem; }
-.prose p { margin: 0.8rem 0; line-height: 1.75; color: hsl(var(--lfs-fg) / 0.92); }
 .prose a { color: hsl(var(--lfs-amber)); text-decoration: underline; text-underline-offset: 2px; }
 .prose a:hover { color: hsl(var(--lfs-orange)); }
 .prose strong { color: hsl(var(--lfs-fg)); font-weight: 700; }

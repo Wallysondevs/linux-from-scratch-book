@@ -20,11 +20,11 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen" style={{ background: "hsl(var(--lfs-bg))" }}>
+    <div className="min-h-screen overflow-x-hidden" style={{ background: "hsl(var(--lfs-bg))" }}>
       <Sidebar groups={GROUPS} isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
-      <div className="lg:ml-80">
+      <div className="lg:ml-80 min-w-0">
         <Header onMenuClick={() => setSidebarOpen(true)} />
-        <main className="px-5 py-8 md:px-10 max-w-4xl mx-auto">
+        <main className="px-5 py-8 md:px-10 max-w-4xl mx-auto min-w-0">
           <Switch hook={useHashLocation}>
             <Route path="/" component={Home} />
             <Route path="/page/:slug">

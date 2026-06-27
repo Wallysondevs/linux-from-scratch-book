@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecionando…</title>
+    <script>
+      // GitHub Pages serve este 404 quando a rota não é encontrada (ex: hard refresh).
+      // Como o app usa hash routing, basta redirecionar para a base preservando o hash.
+      (function () {
+        var base = "/linux-from-scratch-book/";
+        var hash = window.location.hash || "#/";
+        window.location.replace(base + hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando…</p>
+  </body>
+</html>
