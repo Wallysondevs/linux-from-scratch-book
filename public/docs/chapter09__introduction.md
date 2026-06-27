@@ -1,4 +1,4 @@
-# 9.1. Introduction
+# 9.1. Introdução
 
 Este capítulo discute arquivos de configuração e serviços systemd. Primeiro, os arquivos de configuração gerais necessários para configurar a rede são apresentados.
 

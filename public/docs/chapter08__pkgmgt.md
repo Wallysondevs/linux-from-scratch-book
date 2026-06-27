@@ -1,4 +1,4 @@
-# 8.2. Package Management
+# 8.2. Gerenciamento de Pacotes
 
 O Gerenciamento de Pacotes é uma adição frequentemente solicitada ao Livro LFS. Um Gerenciador de Pacotes rastreia a instalação de arquivos, tornando mais fácil remover e atualizar pacotes. Um bom gerenciador de pacotes também lidará com os arquivos de configuração de forma especial para manter a configuração do usuário quando o pacote for reinstalado ou atualizado. Antes que você comece a se perguntar, NÃO—esta seção não abordará nem recomendará nenhum gerenciador de pacotes em particular. O que ela fornece é um resumo das técnicas mais populares e como elas funcionam. O gerenciador de pacotes perfeito para você pode estar entre essas técnicas, ou pode ser uma combinação de duas ou mais dessas técnicas. Esta seção menciona brevemente problemas que podem surgir ao atualizar pacotes.
 

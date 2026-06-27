@@ -1,4 +1,4 @@
-# 11.4. Additional Resources
+# 11.4. Recursos Adicionais
 
 Obrigado por ler este livro LFS. Esperamos que você tenha achado este livro útil e aprendido mais sobre o processo de criação do sistema.
 

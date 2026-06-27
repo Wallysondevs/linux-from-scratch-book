@@ -1,4 +1,4 @@
-# 9.6. Configuring the Linux Console
+# 9.6. Configurando o Console Linux
 
 Esta seção discute como configurar o serviço de sistema systemd-vconsole-setup, que configura a fonte do console virtual e o keymap do console.
 

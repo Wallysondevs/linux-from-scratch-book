@@ -1,4 +1,4 @@
-# 5.6. Libstdc++ from GCC-15.2.0
+# 5.6. Libstdc++ do GCC-15.2.0
 
 Libstdc++ é a biblioteca padrão C++. É necessária para compilar código C++ (parte do GCC é escrita em C++), mas tivemos que adiar sua instalação quando construímos [gcc-pass1](#/page/chapter05__gcc-pass1) porque Libstdc++ depende do Glibc, que ainda não estava disponível no diretório target.
 

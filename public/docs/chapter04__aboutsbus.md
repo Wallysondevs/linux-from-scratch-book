@@ -1,4 +1,4 @@
-# 4.5. About SBUs
+# 4.5. Sobre SBUs
 
 Muitas pessoas gostariam de saber de antemão aproximadamente quanto tempo leva para compilar e instalar cada package. Como o Linux From Scratch pode ser buildado em muitos sistemas diferentes, é impossível fornecer estimativas de tempo absolutas. O maior package (gcc) levará aproximadamente 5 minutos nos sistemas mais rápidos, mas pode levar dias em sistemas mais lentos! Em vez de fornecer tempos reais, a medida da Unidade de Build Padrão (SBU) será usada.
 

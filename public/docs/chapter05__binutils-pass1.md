@@ -1,4 +1,4 @@
-# 5.2. Binutils-2.45 - Pass 1
+# 5.2. Binutils-2.45 - Passagem 1
 
 O pacote Binutils contém um linker, um assembler e outras ferramentas para manipular arquivos objeto.
 

@@ -1,4 +1,4 @@
-# 2.4. Creating a New Partition
+# 2.4. Criando uma Nova Partição
 
 Como a maioria dos outros sistemas operacionais, o LFS é geralmente instalado em uma partição dedicada. A abordagem recomendada para construir um sistema LFS é usar uma partição vazia disponível ou, se você tiver espaço não particionado suficiente, criar uma.
 

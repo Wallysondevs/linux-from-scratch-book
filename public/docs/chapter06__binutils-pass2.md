@@ -1,4 +1,4 @@
-# 6.17. Binutils-2.45 - Pass 2
+# 6.17. Binutils-2.45 - Passagem 2
 
 O pacote Binutils contém um ligador, um montador e outras ferramentas para manipulação de arquivos objeto.
 

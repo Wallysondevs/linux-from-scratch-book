@@ -1,4 +1,4 @@
-# 8.83. Stripping
+# 8.83. Remoção de Símbolos
 
 Esta seção é opcional. Se o usuário pretendido não for um programador e não planeja fazer nenhuma depuração do software do sistema, o tamanho do sistema pode ser diminuído em cerca de 2 GB removendo os símbolos de depuração e algumas entradas desnecessárias da tabela de símbolos, de binários e bibliotecas. Isso não causa nenhum inconveniente real para um usuário Linux típico.
 

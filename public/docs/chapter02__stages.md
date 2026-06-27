@@ -1,4 +1,4 @@
-# 2.3. Building LFS in Stages
+# 2.3. Construindo o LFS em Etapas
 
 O LFS é projetado para ser construído em uma única sessão. Ou seja, as instruções assumem que o sistema não será desligado durante o processo. Isso não significa que o sistema precise ser construído de uma só vez. A questão é que certos procedimentos devem ser repetidos após uma reinicialização ao retomar o LFS em diferentes pontos.
 

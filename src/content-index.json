@@ -41,7 +41,7 @@
    },
    {
     "slug": "prologue__preface",
-    "title": "Preface"
+    "title": "Prefácio"
    }
   ]
  },
@@ -67,7 +67,7 @@
    },
    {
     "slug": "chapter01__askforhelp",
-    "title": "1.5. Help"
+    "title": "1.5. Ajuda"
    }
   ]
  },
@@ -75,6 +75,10 @@
   "id": "chapter02",
   "name": "2. Preparando o Host",
   "pages": [
+   {
+    "slug": "chapter02__chapter02",
+    "title": "2. Preparando o Sistema Host"
+   },
    {
     "slug": "chapter02__introduction",
     "title": "2.1. Introdução"
@@ -85,11 +89,11 @@
    },
    {
     "slug": "chapter02__stages",
-    "title": "2.3. Building LFS in Stages"
+    "title": "2.3. Construindo o LFS em Etapas"
    },
    {
     "slug": "chapter02__creatingpartition",
-    "title": "2.4. Creating a New Partition"
+    "title": "2.4. Criando uma Nova Partição"
    },
    {
     "slug": "chapter02__creatingfilesystem",
@@ -110,6 +114,10 @@
   "name": "3. Pacotes e Patches",
   "pages": [
    {
+    "slug": "chapter03__chapter03",
+    "title": "3. Pacotes e Patches"
+   },
+   {
     "slug": "chapter03__introduction",
     "title": "3.1. Introdução"
    },
@@ -128,6 +136,10 @@
   "name": "4. Preparativos Finais",
   "pages": [
    {
+    "slug": "chapter04__chapter04",
+    "title": "4. Preparações Finais"
+   },
+   {
     "slug": "chapter04__introduction",
     "title": "4.1. Introdução"
    },
@@ -141,11 +153,11 @@
    },
    {
     "slug": "chapter04__settingenvironment",
-    "title": "4.4. Setting Up the Environment"
+    "title": "4.4. Configurando o Ambiente"
    },
    {
     "slug": "chapter04__aboutsbus",
-    "title": "4.5. About SBUs"
+    "title": "4.5. Sobre SBUs"
    },
    {
     "slug": "chapter04__abouttestsuites",
@@ -154,20 +166,38 @@
   ]
  },
  {
+  "id": "partintro",
+  "name": "Notas Técnicas & Instruções Gerais",
+  "pages": [
+   {
+    "slug": "partintro__toolchaintechnotes",
+    "title": "ii. Notas Técnicas da Toolchain"
+   },
+   {
+    "slug": "partintro__generalinstructions",
+    "title": "iii. Instruções Gerais de Compilação"
+   }
+  ]
+ },
+ {
   "id": "chapter05",
   "name": "5. Toolchain Temporária (Parte 1)",
   "pages": [
+   {
+    "slug": "chapter05__chapter05",
+    "title": "5. Compilando uma Cross-Toolchain"
+   },
    {
     "slug": "chapter05__introduction",
     "title": "5.1. Introdução"
    },
    {
     "slug": "chapter05__binutils-pass1",
-    "title": "5.2. Binutils-2.45 - Pass 1"
+    "title": "5.2. Binutils-2.45 - Passagem 1"
    },
    {
     "slug": "chapter05__gcc-pass1",
-    "title": "5.3. GCC-15.2.0 - Pass 1"
+    "title": "5.3. GCC-15.2.0 - Passagem 1"
    },
    {
     "slug": "chapter05__linux-headers",
@@ -179,7 +209,7 @@
    },
    {
     "slug": "chapter05__gcc-libstdc++",
-    "title": "5.6. Libstdc++ from GCC-15.2.0"
+    "title": "5.6. Libstdc++ do GCC-15.2.0"
    }
   ]
  },
@@ -187,6 +217,10 @@
   "id": "chapter06",
   "name": "6. Ferramentas Temporárias (Parte 2)",
   "pages": [
+   {
+    "slug": "chapter06__chapter06",
+    "title": "6. Cross-Compilando Ferramentas Temporárias"
+   },
    {
     "slug": "chapter06__introduction",
     "title": "6.1. Introdução"
@@ -253,11 +287,11 @@
    },
    {
     "slug": "chapter06__binutils-pass2",
-    "title": "6.17. Binutils-2.45 - Pass 2"
+    "title": "6.17. Binutils-2.45 - Passagem 2"
    },
    {
     "slug": "chapter06__gcc-pass2",
-    "title": "6.18. GCC-15.2.0 - Pass 2"
+    "title": "6.18. GCC-15.2.0 - Passagem 2"
    }
   ]
  },
@@ -266,8 +300,12 @@
   "name": "7. Entrando no Chroot",
   "pages": [
    {
+    "slug": "chapter07__chapter07",
+    "title": "7. Entrando no Chroot e Construindo Ferramentas Temporárias Adicionais"
+   },
+   {
     "slug": "chapter07__introduction",
-    "title": "7.1. Introduction"
+    "title": "7.1. Introdução"
    },
    {
     "slug": "chapter07__changingowner",
@@ -275,11 +313,11 @@
    },
    {
     "slug": "chapter07__kernfs",
-    "title": "7.3. Preparing Virtual Kernel File Systems"
+    "title": "7.3. Preparando Sistemas de Arquivos Virtuais do Kernel"
    },
    {
     "slug": "chapter07__chroot",
-    "title": "7.4. Entering the Chroot Environment"
+    "title": "7.4. Entrando no Ambiente Chroot"
    },
    {
     "slug": "chapter07__creatingdirs",
@@ -315,7 +353,7 @@
    },
    {
     "slug": "chapter07__cleanup",
-    "title": "7.13. Cleaning up and Saving the Temporary System"
+    "title": "7.13. Limpando e Salvando o Sistema Temporário"
    }
   ]
  },
@@ -324,12 +362,16 @@
   "name": "8. Construindo o Sistema LFS",
   "pages": [
    {
+    "slug": "chapter08__chapter08",
+    "title": "8. Instalando Software Básico do Sistema"
+   },
+   {
     "slug": "chapter08__introduction",
     "title": "8.1. Introdução"
    },
    {
     "slug": "chapter08__pkgmgt",
-    "title": "8.2. Package Management"
+    "title": "8.2. Gerenciamento de Pacotes"
    },
    {
     "slug": "chapter08__man-pages",
@@ -649,7 +691,7 @@
    },
    {
     "slug": "chapter08__stripping",
-    "title": "8.83. Stripping"
+    "title": "8.83. Remoção de Símbolos"
    },
    {
     "slug": "chapter08__cleanup",
@@ -662,20 +704,24 @@
   "name": "9. Configuração do Sistema",
   "pages": [
    {
+    "slug": "chapter09__chapter09",
+    "title": "9. Configuração do Sistema"
+   },
+   {
     "slug": "chapter09__introduction",
-    "title": "9.1. Introduction"
+    "title": "9.1. Introdução"
    },
    {
     "slug": "chapter09__network",
-    "title": "9.2. General Network Configuration"
+    "title": "9.2. Configuração Geral de Rede"
    },
    {
     "slug": "chapter09__udev",
-    "title": "9.3. Overview of Device and Module Handling"
+    "title": "9.3. Visão Geral do Manuseio de Dispositivos e Módulos"
    },
    {
     "slug": "chapter09__symlinks",
-    "title": "9.4. Managing Devices"
+    "title": "9.4. Gerenciando Dispositivos"
    },
    {
     "slug": "chapter09__clock",
@@ -683,7 +729,7 @@
    },
    {
     "slug": "chapter09__console",
-    "title": "9.6. Configuring the Linux Console"
+    "title": "9.6. Configurando o Console Linux"
    },
    {
     "slug": "chapter09__locale",
@@ -708,6 +754,10 @@
   "name": "10. Tornando o LFS Inicializável",
   "pages": [
    {
+    "slug": "chapter10__chapter10",
+    "title": "10. Tornando o Sistema LFS Inicializável"
+   },
+   {
     "slug": "chapter10__introduction",
     "title": "10.1. Introdução"
    },
@@ -730,6 +780,10 @@
   "name": "11. O Fim",
   "pages": [
    {
+    "slug": "chapter11__chapter11",
+    "title": "11. O Fim"
+   },
+   {
     "slug": "chapter11__theend",
     "title": "11.1. O Fim"
    },
@@ -743,7 +797,7 @@
    },
    {
     "slug": "chapter11__whatnow",
-    "title": "11.4. Additional Resources"
+    "title": "11.4. Recursos Adicionais"
    },
    {
     "slug": "chapter11__afterlfs",

@@ -1,4 +1,4 @@
-# 7.1. Introduction
+# 7.1. Introdução
 
 Este capítulo mostra como construir os últimos componentes restantes do sistema temporário: as ferramentas necessárias para construir os vários packages. Agora que todas as dependências circulares foram resolvidas, um ambiente “chroot”, completamente isolado do sistema operacional host (exceto pelo kernel em execução), pode ser usado para o build.
 

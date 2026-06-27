@@ -1,4 +1,4 @@
-# 9.2. General Network Configuration
+# 9.2. Configuração Geral de Rede
 
 Esta seção se aplica apenas se uma placa de rede for configurada.
 

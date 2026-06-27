@@ -1,4 +1,4 @@
-# 9.3. Overview of Device and Module Handling
+# 9.3. Visão Geral do Manuseio de Dispositivos e Módulos
 
 No Capítulo 8, instalamos o daemon udev quando o systemd foi construído. Antes de entrarmos nos detalhes sobre como o udev funciona, uma breve história dos métodos anteriores de manipulação de dispositivos é apropriada.
 

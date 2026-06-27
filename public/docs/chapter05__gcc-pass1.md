@@ -1,4 +1,4 @@
-# 5.3. GCC-15.2.0 - Pass 1
+# 5.3. GCC-15.2.0 - Passagem 1
 
 O pacote GCC contém a coleção de compiladores GNU, que inclui os compiladores C e C++.
 

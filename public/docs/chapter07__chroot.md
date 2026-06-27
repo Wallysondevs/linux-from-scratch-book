@@ -1,4 +1,4 @@
-# 7.4. Entering the Chroot Environment
+# 7.4. Entrando no Ambiente Chroot
 
 Agora que todos os packages necessários para buildar o restante das ferramentas necessárias estão no sistema, é hora de entrar no ambiente chroot e finalizar a instalação das ferramentas temporárias. Este ambiente também será usado para instalar o sistema final. Como usuário root, execute o seguinte comando para entrar no ambiente que está, no momento, populado apenas com ferramentas temporárias:
 

@@ -1,4 +1,4 @@
-# 7.3. Preparing Virtual Kernel File Systems
+# 7.3. Preparando Sistemas de Arquivos Virtuais do Kernel
 
 Aplicações executadas no userspace utilizam vários sistemas de arquivos criados pelo kernel para se comunicar com o próprio kernel. Esses sistemas de arquivos são virtuais: nenhum espaço em disco é usado para eles. O conteúdo desses sistemas de arquivos reside na memória. Esses sistemas de arquivos devem ser montados na árvore de diretórios $LFS para que as aplicações possam encontrá-los no ambiente chroot.
 

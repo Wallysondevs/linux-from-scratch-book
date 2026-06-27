@@ -1,4 +1,4 @@
-# 4.4. Setting Up the Environment
+# 4.4. Configurando o Ambiente
 
 Configure um bom ambiente de trabalho criando dois novos arquivos de inicialização para o shell bash. Enquanto logado como usuário lfs, execute o seguinte comando para criar um novo .bash_profile:
 

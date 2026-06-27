@@ -1,4 +1,4 @@
-# 7.13. Cleaning up and Saving the Temporary System
+# 7.13. Limpando e Salvando o Sistema Temporário
 
 ## 7.13.1. Limpeza
 

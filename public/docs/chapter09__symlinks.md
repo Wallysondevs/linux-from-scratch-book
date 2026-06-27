@@ -1,4 +1,4 @@
-# 9.4. Managing Devices
+# 9.4. Gerenciando Dispositivos
 
 ## 9.4.1. Lidando com Dispositivos Duplicados
 
