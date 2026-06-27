@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
-import { useHashLocation } from "wouter/use-hash-location";
 import { Terminal, Search, X, ChevronDown } from "lucide-react";
 
 interface Page { slug: string; title: string; }
@@ -12,7 +11,7 @@ interface Props {
 }
 
 export function Sidebar({ groups, isOpen, setIsOpen }: Props) {
-  const [location] = useLocation(useHashLocation as any);
+  const [location] = useLocation();
   const [query, setQuery] = useState("");
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
